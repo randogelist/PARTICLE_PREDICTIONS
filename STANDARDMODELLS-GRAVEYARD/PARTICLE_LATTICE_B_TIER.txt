@@ -1,0 +1,3530 @@
+PARTICLE_LATTICE_B_TIER
+Version: 0.20
+Date: 2026-11-18
+Namespace: ParticleLattice
+Mode: B_TIER_DERIVATION
+Status: ORDINARY QUANTUM-NUMBER EVIDENCE REGISTERED AND CONDITIONAL FINITE-TIME DISTINGUISHABILITY DERIVED
+Associated repository: https://github.com/randogelist/PARTICLE_PREDICTIONS
+Repository baseline: empty at initialization; configured default branch main.
+This document is a working derivation, not a repository commit.
+Verification: explicit mathematical arguments and independent static review.
+No Lean, Lake, local kernel audit, or external formal verification was run.
+No A-tier claim.
+
+======================================================================
+0. SCOPE, TARGETS, AND GENERAL CHAIN
+======================================================================
+
+Active local target:
+Derive an abstract particle-lattice framework using as few independent
+inputs as can be justified; retain analytical dependence on those inputs;
+seek complete spectral description below a symbolic cutoff Lambda_LHC.
+
+Project context: NEW_PARTICLE_CANDIDATES.
+Separately recorded macroscopic goal: UNRESOLVED, not NONE.
+Microscopic endpoint of the Standard Model branch (sections 75 and 77):
+Identify the ordinary quantum numbers and the experimental observables
+that constrain each species, with explicit sources and uncertainties.
+Current microscopic endpoint of the black-hole branch (sections 76 and 78):
+Determine when two equal-mass internal states can be distinguished using
+formation records and radiation collected by a finite observation time.
+
+Excluded inputs in the abstract layer (Sections 1-12):
+Experimental particle masses, measured resonance positions or widths,
+fitted particle-to-address assignments, empirical Lamb normalization,
+and comparison-driven state selectors. No numerical LHC energy is used.
+Lambda_LHC > 0 is an abstract upper energy cutoff.
+
+Scoped extensions authorized by the user:
+Sections 13-19 introduce the electron rest-energy calibration and
+literature comparison. This adds no numerical collider cutoff and does
+not replace the unresolved macroscopic goal.
+Sections 20-26 audit candidate conservation laws. They introduce no new
+mass calibration and do not change the active abstract-spectrum target.
+Sections 27-33 answer the subsequent request for interaction rules.
+They retain the full-grading obstruction and test a precisely specified
+coarser quotient. Weak-current structure is an additional compatibility
+input; it is not derived from the mass lattice. No numerical mixing
+angles, coupling strengths, or new measured masses are used.
+Sections 34-39 address the request for a B-tier derivation of the
+operators and coefficients. They use symbolic parameters throughout.
+Sections 40-45 construct a joint algebra using whole marked blocks.
+They give explicit finite and countably infinite decompositions.
+Sections 46-50 specialize to the selected sixteen states. They
+construct one matrix generator with an explicit reconstruction proof.
+Sections 51-55 test the sheet label and the earlier common matter grade
+against separate interaction assumptions.
+Sections 56-59 record anchors that can be specified before choosing a
+word assignment. A separate scale and dimensionless mass test connect
+them to the inherited codebook.
+Sections 60-65 supply inverse maps and tests for observables, additive
+conservation laws, operator multiplicities and mass matching.
+Sections 66-69 give the proposed measurement interface, anchor policy,
+operator statistics and reporting rules. This is a plan with a proved
+linear residual identity. The software and statistical fits are pending.
+
+Dependency chain:
+
+  Block sizes + fixed positive center ratios
+  + common geometric-mean product law
+      -> complete positive energy manifold
+      -> exact parameter count and common-scale reconstruction
+      -> integer exponent lattice in the chosen energy coordinates
+      -> rank, saturation index, determinant
+      -> conditional sixteen-coordinate specialization.
+
+  Separately: full integer/sheet label set + powers {-2,-1,+1}
+  + exact diagonal energy law + positive scale
+      -> positive self-adjoint bare operator
+      -> complete spectrum and multiplicities
+      -> complete symbolic upper-cutoff enumeration
+      -> finite enumeration on every positive closed energy window.
+
+  These two branches
+      -- BLOCKED -->
+  uniquely selected physical state content and complete resonance dynamics.
+
+All conclusions below are conditional on their displayed premises.
+No theorem below derives the initial product law or power-law operator
+from NSE, Einstein equations, or a fundamental action.
+
+======================================================================
+1. INPUT REGISTER AND MEANING OF "LATTICE"
+======================================================================
+
+There are three distinct mathematical objects.
+
+(A) An address set labels an orthonormal basis.
+(B) An integral compatibility lattice describes integer multiplicative
+    deformations of positive energy coordinates.
+(C) A resonance object would require a dynamical definition of poles,
+    widths, and the associated state/channel interpretation.
+
+The energy set {n,1/n : n >= 1} is not an additive lattice in R.
+The word "lattice" in the exact lattice theorems refers to object (B).
+
+GENERAL COMPATIBILITY INPUTS:
+
+C1. An integer r >= 1 and an ordered partition into block sizes
+        d_1,...,d_r >= 1,        N = sum_j d_j.
+    These sizes are abstract coordinate blocks, not derived particle counts.
+
+C2. Fixed dimensionless positive centers c_1,...,c_r > 0.
+    Their common rescaling is redundant with the energy normalization.
+    One may fix c_r = 1 without loss of generality, leaving r-1 ratios.
+
+C3. The common-center product law for positive coordinates E_{j,i}:
+        product_{i=1}^{d_j} E_{j,i} = (E_* c_j)^{d_j},
+        j=1,...,r,             E_* > 0.
+    Geometric-mean preservation is a model premise.
+
+C4. Integer exponents are taken in these specified multiplicative energy
+    coordinates. This fixes the integral structure used below.
+    It does not discretize the actual energy manifold.
+
+C5. For Gram matrices, lengths, and determinants, use the ordinary
+    Euclidean metric sum_{j,i} dx_{j,i}^2 in logarithmic coordinates.
+    Another metric changes the metric lattice invariants.
+
+Units:
+E_{j,i} and E_* have energy units; c_j and all exponential factors are
+dimensionless. Every logarithm below has a dimensionless argument.
+
+======================================================================
+2. COMPLETE POSITIVE MANIFOLD AND PARAMETER COUNT
+======================================================================
+
+Definition:
+M(d,c) is the set of E in (0,infinity)^N for which there exists E_* > 0
+satisfying C3.
+
+THEOREM PL-01 (complete parameterization).
+Every E in M(d,c) has the unique representation
+
+    E_{j,i} = E_* c_j exp(z_{j,i}),
+    sum_{i=1}^{d_j} z_{j,i} = 0 for every j.                 (2.1)
+
+Here the c_j are fixed, including their overall normalization.
+
+Proof.
+If (2.1) holds, taking the product in block j gives C3.
+Conversely C3 gives
+
+    E_* = c_j^{-1}(product_i E_{j,i})^{1/d_j},               (2.2)
+
+independently of j. Define z_{j,i}=log(E_{j,i}/(E_*c_j)).
+The logarithm of C3 gives sum_i z_{j,i}=0.
+Formula (2.2) fixes E_* uniquely, and then fixes every z. QED.
+
+Choose an arbitrary reference energy E_ref > 0 only to write coordinates:
+
+    x_{j,i} = log(E_{j,i}/(E_ref c_j)),
+    t = log(E_*/E_ref).
+
+Then
+
+    x = t 1_N + z,
+    z in Z_R := direct_sum_j {u in R^{d_j}: sum_i u_i=0}.    (2.3)
+
+The subspaces R 1_N and Z_R are orthogonal in C5, so
+
+    V_d := R 1_N orthogonal_sum Z_R,
+    dim V_d = 1 + sum_j(d_j-1) = N-r+1.                    (2.4)
+
+For fixed E_*, the dimension is N-r.
+
+Changing E_ref translates t; it changes none of the compatibility laws,
+tangent vectors, lattice invariants, or physical energy ratios.
+
+THEOREM PL-02 (center elimination and independent constraints).
+For j<r, C3 with E_* eliminated is equivalent on positive energies to
+
+    (product_i E_{j,i})^{d_r} / (product_i E_{r,i})^{d_j}
+             = (c_j/c_r)^{d_j d_r}.                        (2.5)
+
+These are exactly r-1 independent logarithmic equations.
+
+Proof.
+Taking logs of (2.5) gives equality of normalized block means.
+Positive roots therefore reconstruct the common E_* by (2.2).
+The jth equation uses block j and reference block r; an arbitrary linear
+combination vanishing on all nonreference blocks has all coefficients
+zero. Thus the equations have rank r-1. QED.
+
+INPUT MINIMALITY WITHIN THIS FAMILY:
+With centers fixed, one scale plus N-r splitting coordinates is complete.
+Every splitting coordinate can vary freely while preserving all others.
+Thus no splitting value follows from C3 alone.
+
+If the r-1 independent center ratios are also free, the total number of
+continuous parameters becomes
+
+    1 + (N-r) + (r-1) = N.                                 (2.6)
+
+Indeed, for any positive E, let its block geometric means be G_j.
+Taking E_*=G_r and c_j=G_j/G_r, with c_r=1, reconstructs (2.1).
+Therefore allowing all centers to vary admits ALL positive spectra.
+
+Consequently:
+Free centers give a universal representation but no restrictive mass-ratio
+prediction. Fixed or derived center ratios are necessary for this family
+to impose nontrivial spectral constraints.
+
+This is a relative parameter-count theorem for C1-C3.
+It is not a claim of globally minimal axioms for all possible physics.
+
+======================================================================
+3. INTEGRAL EXPONENT LATTICE
+======================================================================
+
+For u>0 and v in Z^N, consider the multiplicative deformation
+
+    E_{j,i} -> E_{j,i} u^{v_{j,i}}.
+
+It stays in M(d,c) for every u>0 precisely when the block averages of v
+are all equal. The common E_* is then multiplied by u^t, where
+
+    t = (1/d_j) sum_i v_{j,i}, independently of j.
+
+Definition:
+
+    L_d := V_d intersect Z^N
+         = {v in Z^N: all block averages are equal}.         (3.1)
+
+This is the integral compatibility lattice. It describes allowed integer
+exponents, not a restriction z in L_d on the real coordinates in (2.1).
+
+For j<r define integer equations
+
+    (Qv)_j = d_r sum_i v_{j,i} - d_j sum_i v_{r,i}.           (3.2)
+
+Then
+
+    L_d = ker(Q: Z^N -> Z^{r-1}).                           (3.3)
+
+For r=1, Q has no rows and L_d=Z^N.
+
+THEOREM PL-03 (rank and primitivity).
+L_d has rank N-r+1 and is primitive/saturated in Z^N.
+
+Proof.
+Q has rank r-1 over Q by the same block-independence argument as PL-02,
+so its rational kernel has dimension N-r+1.
+For saturation, if k v belongs to ker Q for v in Z^N and nonzero integer k,
+then k Qv=0 in the torsion-free group Z^{r-1}; hence Qv=0. QED.
+
+The partition and multiplicative coordinates are part of the input.
+The product laws alone do not privilege every possible choice of integral
+coordinate system or logarithmic metric.
+
+======================================================================
+4. SATURATION INDEX AND GENERAL DETERMINANT
+======================================================================
+
+Let
+
+    g := gcd(d_1,...,d_r),
+
+    A_{d_j-1} := {v in Z^{d_j}: sum_i v_i=0},
+    A_0 := {0},
+
+    L_0 := Z 1_N orthogonal_sum (direct_sum_j A_{d_j-1}).    (4.1)
+
+L_0 is always a sublattice of L_d of full rank.
+
+THEOREM PL-04 (exact saturation).
+The common-average map t:L_d -> Q has image (1/g)Z and kernel
+direct_sum_j A_{d_j-1}. Consequently
+
+    L_d/L_0 isomorphic to Z/gZ,
+    [L_d:L_0] = g.                                         (4.2)
+
+Proof.
+If t is a common block average, then d_j t is an integer for every j.
+Choose integers b_j with sum_j b_j d_j=g (Bezout).
+Then g t=sum_j b_j(d_j t) is an integer, so t belongs to (1/g)Z.
+
+Conversely, for t=k/g choose in each block the integer vector whose first
+coordinate is k d_j/g and whose other coordinates vanish.
+Its block average is k/g, proving surjectivity.
+The kernel t=0 is exactly the direct sum of zero-sum root lattices.
+The image of L_0 is Z, and L_0 is the preimage of Z, proving (4.2). QED.
+
+THEOREM PL-05 (Gram determinant).
+
+    det(L_d) = N (product_j d_j) / g^2.                     (4.3)
+
+Here det is the determinant of a Gram matrix in the metric C5, not its
+square root.
+
+Proof.
+The vector 1_N has squared norm N and is orthogonal to all zero-sum blocks.
+In A_{d-1}, the simple-root basis e_i-e_{i+1} has tridiagonal Gram matrix
+with diagonal 2 and neighboring entries -1.
+If D_k denotes its k by k determinant, expansion gives
+D_k=2D_{k-1}-D_{k-2}, D_0=1, D_1=2; therefore D_k=k+1.
+Thus det A_{d-1}=d, including det A_0=1.
+
+It follows that det L_0=N product_j d_j.
+A sublattice of index g has covolume g times that of its superlattice,
+so its Gram determinant is multiplied by g^2.
+Apply PL-04 to obtain (4.3). QED.
+
+COROLLARY PL-06 (coprime block sizes).
+If g=1, then
+
+    L_d = <N> orthogonal_sum A_{d_1-1} ... A_{d_r-1}.         (4.4)
+
+The discriminant group is
+
+    L_d^*/L_d isomorphic to
+    Z/NZ direct_sum (direct_sum_j Z/d_j Z).                 (4.5)
+
+Proof.
+Equation (4.2) gives equality of L_d and L_0.
+For <N>, the dual generator is 1_N/N and the quotient is Z/NZ.
+For A_{d-1}, the vector ((d-1)/d,-1/d,...,-1/d) is dual to the
+integer zero-sum lattice, and its class has exact order d.
+The quotient has order det A_{d-1}=d, so this class generates it.
+Orthogonal sums give direct sums of dual quotients. QED.
+
+Caution:
+For g>1, (4.4) and (4.5) need not hold: L_d is a genuine overlattice.
+The general determinant formula (4.3) still holds.
+If E_* is kept as an additional multiplicative coordinate whose exponent
+must also be integral, the projected energy exponents give L_0.
+Eliminating that extra integral-exponent requirement gives the saturated L_d.
+
+COROLLARY PL-06b (center non-identifiability from the tangent lattice).
+For fixed d and the coordinate/metric conventions C4-C5, L_d and every
+invariant computed from it are independent of all positive centers c_j.
+In particular, when r>=2, varying a relative center while keeping the
+others fixed changes unsplit energy ratios without changing L_d.
+
+Proof.
+The defining equations (3.1)-(3.2) contain only d and v, not c.
+At z=0, (2.1) gives E_{j,i}/E_{k,l}=c_j/c_k, which can vary freely.
+Thus the same lattice supports different center ratios. QED.
+
+Consequently a center-selection law cannot be extracted from the
+unmarked metric lattice alone. Additional structure is required.
+
+======================================================================
+5. CONDITIONAL SIXTEEN-COORDINATE SPECIALIZATION
+======================================================================
+
+Take, solely as an abstract structural choice,
+
+    d=(2,2,2,2,2,3,1,1,1).                                 (5.1)
+
+Then r=9, N=16, g=1, and PL-03--PL-06 give
+
+    rank L_d = 8,
+    L_d isometric to <16> orthogonal_sum A_1^5
+                                  orthogonal_sum A_2,
+    det L_d = 16*2^5*3 = 1536,                             (5.2)
+
+    L_d^*/L_d isomorphic to
+       Z/16Z direct_sum (Z/2Z)^5 direct_sum Z/3Z.            (5.3)
+
+Its 2-primary subgroup has order 16*2^5=512.
+
+For any fixed positive centers c_1,...,c_9, the full positive family is
+
+    E_{j,+}=E_*c_j exp(s_j),
+    E_{j,-}=E_*c_j exp(-s_j),           j=1,...,5;
+
+    (E_{6,1},E_{6,2},E_{6,3})
+        =E_*c_6 (exp(a), exp(b), exp(-a-b));
+
+    E_{7,1}=E_*c_7, E_{8,1}=E_*c_8, E_{9,1}=E_*c_9.        (5.4)
+
+Thus the fixed-center family has exactly seven free splitting coordinates
+and one overall energy scale.
+
+The numbers 16, 1536, and 512 follow from (5.1), C3, C4, and C5.
+This calculation does NOT derive (5.1), a physical sixteen-particle count,
+a vacuum-energy transfer law, or the center ratios c_j.
+No measured value or named particle assignment enters this specialization.
+
+Equal splitting values z=0 reproduce unsplit block centers.
+Away from z=0, the d_j are compatibility block sizes, not necessarily
+eigenspace multiplicities of the deformed diagonal energy operator.
+
+======================================================================
+6. SEPARATE BARE WORD/SHEET SPECTRAL PREMISES
+======================================================================
+
+For the second, independently conditional branch, assume:
+
+S1. Admissible bare labels A=N_{>0} x P, P={-2,-1,+1}.
+    H=l^2(A) with orthonormal basis e_{n,p}.
+S2. Exact bare energy law E_{n,p}=E_* n^p.
+S3. A common normalization E_*>0 with energy units.
+S4. All labels in S1 are retained; no post-hoc finite selector is used.
+
+These premises specify a mathematical model. They are not consequences
+of C1-C5, positional notation, or the former particle codebook.
+
+A canonical nonempty radix-b word with nonzero leading digit is in
+bijection with N_{>0}, for every integer b>=2.
+Identifying the word basis with the integer basis gives the same diagonal
+law S2. Thus the bare spectrum does not select radix 4.
+
+If append maps
+
+    S_d e_n=e_{b n+d}, d=0,...,b-1,
+
+enter an enlarged operator or dynamics, the chosen radix is extra
+structural input. Radix independence here concerns S2 only.
+
+======================================================================
+7. POSITIVE SELF-ADJOINT OPERATOR AND FULL SPECTRUM
+======================================================================
+
+Define
+
+    H_0 e_{n,p}=E_* n^p e_{n,p},
+
+    D(H_0)={u in H: sum_{n,p} E_*^2 n^{2p}|u_{n,p}|^2
+                                    is finite}.            (7.1)
+
+THEOREM PL-07.
+H_0 is densely defined, positive, and self-adjoint.
+Finite-support vectors form a core.
+
+Proof.
+Finite-support vectors lie in the domain and are dense.
+All diagonal coefficients are real and positive, so symmetry and
+nonnegative quadratic form follow by convergent Hilbert-space pairing.
+
+Testing a vector in the adjoint domain against each basis vector forces
+its adjoint image to have coordinates E_* n^p u_{n,p}.
+That image belongs to H exactly when the condition in (7.1) holds.
+Thus the adjoint domain is D(H_0), and H_0^*=H_0.
+
+Finite-coordinate truncations converge both in H and after applying H_0
+by convergence of the two defining squared sums. QED.
+
+THEOREM PL-08 (complete spectrum).
+
+    sigma(H_0)
+      = E_* ({0} union N_{>0} union {1/q:q>=1}).             (7.2)
+
+Zero is not an eigenvalue. Every positive displayed spectral value is
+an eigenvalue.
+
+Proof.
+A diagonal real operator has spectrum equal to the closure of its
+diagonal values: off that closure, division by E_*n^p-z is uniformly
+bounded and gives an everywhere-defined inverse into D(H_0).
+On a diagonal value a basis eigenvector prevents invertibility.
+At a finite accumulation value, a sequence of basis vectors has
+||(H_0-z)e_{n,p}|| tending to zero, preventing a bounded inverse.
+
+Here the inverse-square values n^{-2} are already reciprocal values
+q^{-1} with q=n^2. The integers have no finite accumulation point; the
+reciprocals accumulate only at zero. All coefficients are positive,
+so the kernel is zero. QED.
+
+THEOREM PL-09 (bare multiplicities).
+For x=E/E_*, at positive spectral values,
+
+    mult(1)=3;
+    mult(m)=1 for integers m>=2;
+    mult(1/q)=1+1_{q is a perfect square}, q>=2.             (7.3)
+
+Proof.
+Only n=1 lies on all three sheets.
+For values above 1 only the positive sheet contributes.
+For q>=2 the inverse sheet gives one state, and the inverse-square
+sheet gives one additional state precisely when q=n^2. QED.
+
+These are model multiplicities; physical spin, polarization, color,
+and other representation multiplicities have not been supplied.
+
+======================================================================
+8. COMPLETE CUTOFF DESCRIPTION AND FINITE WINDOW COUNT
+======================================================================
+
+Let Lambda>0, rho=Lambda/E_*.
+
+THEOREM PL-10 (upper-cutoff enumeration).
+The complete label set with E_{n,p}<=Lambda is
+
+    p=+1: 1 <= n <= floor(rho);
+    p=-1: n >= max(1,ceil(rho^{-1}));
+    p=-2: n >= max(1,ceil(rho^{-1/2})).                      (8.1)
+
+Proof.
+Divide the energy inequality by E_*>0 and solve n^p<=rho
+on each sheet. For p<0, inversion reverses the inequality. QED.
+
+For every Lambda>0 this is countably infinite, and the spectral projection
+onto (0,Lambda] has infinite rank.
+Nevertheless, (8.1) is a complete finite symbolic description of every
+label in that infinite set. A finite-list requirement is stronger.
+
+Now take 0<epsilon<=Lambda, and set
+
+    a=epsilon/E_*,       b=Lambda/E_*,
+
+    C(u,v)=max(0, floor(v)-max(1,ceil(u))+1).                (8.2)
+
+THEOREM PL-11 (exact finite-window counts).
+
+    N_states([epsilon,Lambda])
+       = C(a,b) + C(b^{-1},a^{-1})
+                  + C(b^{-1/2},a^{-1/2}),                  (8.3)
+
+    N_distinct([epsilon,Lambda])
+       = C(a,b) + C(b^{-1},a^{-1})
+                  - 1_{a<=1<=b}.                          (8.4)
+
+Proof.
+The three integer intervals are respectively
+[a,b], [b^{-1},a^{-1}], and [b^{-1/2},a^{-1/2}].
+C counts their positive integers, so (8.3) counts basis labels.
+All inverse-square energies already occur on the inverse sheet.
+The only overlap between positive-integer and reciprocal energies is 1,
+present exactly when a<=1<=b. This proves (8.4). QED.
+
+Setting Lambda=Lambda_LHC gives the requested symbolic cutoff formulas,
+conditional on S1-S4. No numerical collider scale or experimental input
+has been substituted.
+
+An infrared cutoff epsilon is a new restriction, not a consequence of
+the upper cutoff. It is unnecessary for the complete symbolic catalogue
+but necessary for this particular finite-window catalogue.
+Other finite selectors would require their own theoretical justification.
+
+======================================================================
+9. PRECISE RELATION BETWEEN THE TWO BRANCHES
+======================================================================
+
+Given H_0, choose finitely many DISTINCT bare energy ratios c_j and retain
+each chosen eigenspace in full. Its bare multiplicities supply d_j.
+
+This selection produces a finite reference register, not a completeness
+theorem for H_0 and not a physical particle-selection principle.
+
+A subsequent splitting of that register satisfying C3 is an additional
+geometric-mean-preservation hypothesis. It is not implied by the bare
+spectral decomposition or by arbitrary interactions.
+
+For fixed d and c, formula (2.1) may itself be made into a finite diagonal
+self-adjoint operator on C^N. This constructs an operator with those
+energies; it does not determine the free z coordinates dynamically.
+
+Thus:
+
+    bare energy spectrum
+      + independently specified finite selection
+      + geometric-mean-preserving deformation law
+        -> compatibility manifold and its exponent lattice.
+
+For the pattern (5.1), one could abstractly choose five distinct
+square-reciprocal doublets, the energy-one triplet, and three simple
+fibers. There are many such choices. Nothing above uniquely selects one.
+
+The entire three-sheet model remains infinite even if one finite
+compatibility register has sixteen coordinates.
+
+======================================================================
+10. INPUT DEPENDENCE, SCALE, AND THE FIRST BLOCKED EDGE
+======================================================================
+
+There is no dimensional normalization hidden in the integer lattice.
+
+For the bare model,
+
+    E_* -> alpha E_*, alpha>0
+        implies H_0 -> alpha H_0,
+
+while every dimensionless energy ratio and multiplicity is unchanged.
+A dimensionless structural theory therefore determines absolute energies
+only up to this free scale unless an independent dimensional mechanism
+is provided. The cutoff enters through Lambda_LHC/E_*.
+
+For the compatibility family, fixed centers leave N-r arbitrary real
+splitting coordinates. Choosing them all zero is a choice, not a
+consequence of the product constraints.
+
+FIRST BLOCKED EDGE:
+
+    conditional compatibility algebra and bare diagonal spectrum
+          --X-->
+    independently selected physical states and complete resonance poles.
+
+Cause:
+No independent action, admissibility law, or dynamical operator has been
+provided that derives all of the following:
+  - the exponent set and the law n^p;
+  - any privileged finite block pattern or choice of center ratios;
+  - geometric-mean preservation under the relevant dynamics;
+  - splitting parameters, interactions, and conserved quantum numbers;
+  - a precise resonance definition and its analytic spectral object.
+
+Unresolved requirement:
+Specify a dynamical/admissibility premise independently of experimental
+spectral fitting and show how it determines the relevant operator and
+state/channel space. A subsequent resonance theorem must work within
+that supplied theory and establish a completeness domain.
+
+The mass-lattice theorems do not imply resonance poles or widths.
+The coefficient 512 in the conditional sixteen-coordinate lattice
+does not by itself supply a dimensional scale or vacuum-density law.
+
+Remaining physical derivation stops at this edge.
+No full physical resonance-spectrum conclusion is claimed.
+
+======================================================================
+11. ENDPOINT REGISTER
+======================================================================
+
+Identifier    Exact endpoint                                  Status
+PL-01         Complete product-law parameterization           B_TIER CONDITIONAL
+PL-02         r-1 constraints and parameter accounting         B_TIER CONDITIONAL
+PL-03         Primitive exponent kernel, rank N-r+1             B_TIER CONDITIONAL
+PL-04         Exact saturation index gcd(d_j)                  B_TIER CONDITIONAL
+PL-05         det L=N product(d_j)/gcd(d_j)^2                   B_TIER CONDITIONAL
+PL-06         Coprime orthogonal form and discriminant group   B_TIER CONDITIONAL
+PL-06b        Center non-identifiability from this lattice      B_TIER CONDITIONAL
+PL-07         Positive self-adjoint bare operator and core     B_TIER CONDITIONAL
+PL-08         Full bare spectrum and zero accumulation         B_TIER CONDITIONAL
+PL-09         Exact bare eigenspace multiplicities             B_TIER CONDITIONAL
+PL-10         Complete symbolic upper-cutoff label catalogue   B_TIER CONDITIONAL
+PL-11         Exact finite positive-window counts              B_TIER CONDITIONAL
+PL-ROOT       Complete physical particle/resonance spectrum    OPEN / BLOCKED
+
+"Conditional" means the indicated mathematical model inputs are premises.
+The derivations are complete within those premises.
+No prepared source or mathematical review is counted as A-tier evidence.
+
+Next suggested scoped endpoint, not an adopted new target:
+Identify which admissibility/operator law can be supplied independently,
+then derive its consequences with the remaining input dependence visible.
+If no such law is supplied, continue only with explicitly conditional
+abstract classification; do not promote it to a physical spectrum.
+
+======================================================================
+12. PROVENANCE
+======================================================================
+
+User scope: current conversation, 2026-11-18.
+Repository: https://github.com/randogelist/PARTICLE_PREDICTIONS
+Repository revision: none at initialization (empty repository).
+
+Recovered source:
+FRACTAL_RENDERER_B_TIER_ALGEBRA_v0_23.txt
+https://chatgpt.com/library?file_id=libfile_a6712a9a02c88191b57d79e792463dbe&account_id=personal
+
+Relevant source sections:
+  3, 27: three-sheet mass operator and complete mass-fiber decomposition.
+  170: sixteen-coordinate logarithmic compatibility lattice.
+  175-177: distinction between quantum-number bookkeeping, dynamics,
+           and resonance-pole completeness.
+
+This document rederives the stated results from explicit premises and
+generalizes the finite compatibility lattice to arbitrary block sizes.
+No numerical particle codebook, empirical scale, or experimental
+comparison from the recovered cumulative register is imported.
+
+Review:
+Independent static mathematical audits checked the generalized lattice,
+its saturation/determinant, the bare spectrum, and cutoff counting.
+All arguments are included above so that the claims are reviewable without
+relying on those audits as a proof authority.
+
+End of the initial abstract layer (version 0.1).
+
+
+======================================================================
+13. USER-AUTHORIZED ELECTRON CALIBRATION AUDIT (VERSION 0.2)
+======================================================================
+
+Scope extension, 2026-11-18:
+The user now asks to normalize from the electron rest energy and compare
+the result with the Standard Model mass literature. This explicitly
+authorizes one measured calibration anchor and literature comparisons
+in this section onward. Sections 1-12 remain the abstract derivation.
+
+This extension evaluates an inherited historical candidate. It does not
+claim that the abstract lattice has derived the candidate's particle
+assignments. The earlier physical-selection obstruction remains open.
+
+New branch:
+
+    inherited nine word/sheet assignments
+      + candidate law E_f=K_e n_f^{p_f}
+      + measured electron rest energy
+         -> uniquely calibrated K_e
+         -> nine candidate energies and scale-invariant ratios
+         -> PDG 2026 comparison
+         -> bare charged-lepton precision fit fails;
+            quark interpretation and twelve-state completeness unresolved.
+
+The electron is the only measured mass used to normalize this audit.
+No word, exponent, splitting coordinate, or center is retuned to improve
+a non-electron row. The historical independence of the assignments from
+experimental information has NOT been established.
+"One measured normalization input" does not mean "one total premise."
+
+======================================================================
+14. RECOVERED CODEBOOK AND EXACT CALIBRATION
+======================================================================
+
+The recovered source explicitly labels the following assignments as
+inherited conditional inputs. Read each word in base 4.
+
+sector   word    n     p     lambda_f=n^p      r_f=lambda_f/lambda_e
+e        1000    64   -2     1/4096            1
+mu       10       4   -2     1/16              256
+tau      1        1   -2     1                 4096
+u        200     32   -2     1/1024            4
+d        111     21   -2     1/441             4096/441
+s        11       5   -2     1/25              4096/25
+c        2        2   -1     1/2               2048
+b        2        2   +1     2                 8192
+t        1111    85   +1     85                348160
+
+These assignments are extra hypotheses relative to PL-01--PL-11.
+
+Anchor:
+    E_e := m_e c^2 = 0.51099895069 MeV,
+    u(E_e) = 0.00000000016 MeV.
+
+Source: NIST CODATA 2022, also quoted by the PDG 2026 lepton table.
+The parenthesized value 0.51099895069(16) means a standard uncertainty
+of 1.6e-10 MeV.
+
+THEOREM PL-12 (one-anchor normalization).
+Given the table and E_f=K_e lambda_f,
+
+    K_e=E_e/lambda_e=4096 E_e,
+    E_f=r_f E_e.                                          (14.1)
+
+Numerically,
+
+    K_e=2093.05170202624 MeV
+       =2.09305170202624 GeV.                             (14.2)
+
+Proof.
+The electron row is E_e=K_e/4096 and determines K_e uniquely.
+Substitution into every row gives (14.1). QED.
+
+K_e denotes the electron-calibrated scale. It is not asserted equal
+to a scale independently obtained from the earlier Lamb-shift proposal.
+
+All pairwise ratios are independent of K_e, including
+
+    E_mu/E_e=256,           E_tau/E_mu=16,
+    E_u/E_e=4,              E_s/E_d=441/25,
+    E_b/E_c=4,              E_t/E_tau=85,
+    E_c E_b=K_e^2.                                        (14.3)
+
+Consequently a change of the common normalization cannot fix an
+incorrect predicted pairwise ratio.
+
+======================================================================
+15. CALIBRATION UNCERTAINTY AND ITS LIMITS
+======================================================================
+
+For fixed exact codebook coefficients,
+
+    u(K_e)=4096 u(E_e)=6.5536e-7 MeV,
+    u(E_f)=r_f u(E_e).                                    (15.1)
+
+Every candidate has the same calibration-only relative uncertainty,
+
+    u(E_f)/E_f = u(E_e)/E_e approximately 3.13e-10.          (15.2)
+
+THEOREM PL-13 (calibration covariance).
+Treating E_e as the sole uncertain input,
+
+    Cov(E_f,E_g)=r_f r_g u(E_e)^2.                         (15.3)
+
+Proof.
+Subtract expectations in E_f=r_f E_e and multiply the centered
+expressions. Taking expectations gives (15.3). QED.
+
+The resulting covariance has rank one, and every mass ratio cancels
+the common calibration uncertainty.
+
+Equations (15.1)-(15.3) are NOT a theoretical uncertainty assessment.
+The model law, assignments, omitted corrections, and mass-definition
+adapter have no quantified error bound. Digits retained in arithmetic
+must not be presented as physical predictive precision.
+
+======================================================================
+16. CONSISTENT PDG 2026 COMPARISON
+======================================================================
+
+All numerical entries below use MeV, with c=1 in the usual mass tables.
+"Candidate" means r_f E_e from Section 14.
+The signed residual is 100*(candidate/reference-1).
+The absolute residual is its absolute value.
+
+sector  candidate             PDG 2026 reference            signed residual
+e       0.51099895069          0.51099895069(16)               anchor
+mu      130.81573137664        105.6583755 +/- 0.0000023       +23.81009149 %
+tau     2093.05170202624       1776.93 +/- 0.09               +17.79032950 %
+u       2.04399580276          2.16 +/- 0.07                   -5.37056469 %
+d       4.74614898419          4.70 +/- 0.07                   +0.98189328 %
+s       83.72206808105         92.9 +/- 0.7                    -9.87936697 %
+c       1046.52585101312       1272.9 +/- 4.5                 -17.78412672 %
+b       4186.10340405248       4186 +/- 6                      +0.00247024 %
+t       177909.3946722304      172600 +/- 270                  +3.07612669 %
+
+Reference conventions:
+  u,d,s: MSbar running masses at renormalization scale mu=2 GeV.
+  c,b:   MSbar running masses evaluated at their own MSbar mass.
+  t:     PDG direct event-kinematic mass extraction.
+The quoted u,d,s,c,b intervals are labeled 90% confidence by the source;
+they are not automatically one-standard-deviation Gaussian errors.
+Lepton masses use the ordinary quoted particle-mass convention.
+
+The model has not derived a map to these quark mass definitions.
+Therefore the quark residuals above are PROVISIONAL NUMERICAL COMPARISONS,
+not an established precision comparison of identical observables.
+In particular, the rows are not all running masses at one common scale.
+
+A separately defined top reference is the cross-section-extracted pole
+mass 172.1 +/- 0.6 GeV. Relative to that central value, the same candidate
+has absolute discrepancy 3.37559249%. This alternative is recorded to
+show the mass-definition dependence; it is not a second fitted result.
+
+No statistical chi-square or likelihood is claimed:
+  - there is no model-error covariance;
+  - the reference intervals use different conventions/confidence levels;
+  - the reference determinations can be correlated;
+  - the quark observable adapter is unresolved;
+  - the codebook's historical independence from data is unverified.
+
+The electron row is a calibration identity and contributes no independent
+evidence for the model.
+
+======================================================================
+17. WHAT THE COMPARISON DOES AND DOES NOT ESTABLISH
+======================================================================
+
+17.1 Exact conditional arithmetic
+Sections 14-15 are complete algebraic consequences of the fixed codebook
+and the electron input.
+
+17.2 Charged-lepton precision failure
+The bare model predicts E_mu/E_e=256, which gives a muon mass 23.81%
+above the reference. It predicts a tau mass 17.79% above the reference.
+These deviations greatly exceed the cited experimental uncertainties.
+Thus, under the ordinary lepton rest-mass interpretation, the uncorrected
+codebook is not a successful precision mass law.
+
+This conclusion does not require any disputed quark-mass convention.
+
+17.3 Closest numerical row
+The bottom candidate is 4.186103404 GeV, compared with 4.186 +/- 0.006
+GeV in the PDG 2026 table. The central-value difference is approximately
+0.1034 MeV, or 0.00247024%.
+
+This is a close numerical coincidence worth retaining as a conditional
+comparison candidate. It is not independently validated physical matching:
+the MSbar(mu=m_b) interpretation, codebook provenance, and dynamical
+selection law remain unproved. The prescribed strong conditional matching
+signal is therefore NOT issued.
+
+17.4 Missing three masses
+The inherited codebook supplies only nine charged-fermion assignments.
+It supplies no selected lambda_nu1,lambda_nu2,lambda_nu3.
+There is consequently no three-neutrino output from this calibration.
+
+If "twelve masses" instead denotes the nine charged fermions plus W,Z,H,
+the inherited codebook likewise supplies no W,Z,H coefficients.
+Neither twelve-entry target is complete.
+
+17.5 What the Standard Model supplies
+The established Higgs-Yukawa equations relate charged-fermion masses
+to Yukawa parameters; they do not fix those parameters from m_e.
+The PDG values here are literature reference determinations, not a
+competing parameter-free Standard Model prediction from one electron mass.
+No theoretical outperformance claim follows from this table.
+
+17.6 Fitting additional splittings would add inputs
+For a fixed-center doublet E_+=K_e c exp(z), matching a measured
+E_obs by setting z=log(E_obs/(K_e c)) is an additional calibration.
+The other member becomes (K_e c)^2/E_obs.
+This could define another explicitly conditional model, but it would
+not be a prediction of both masses from the electron alone.
+No such adjustment was performed in this audit.
+
+======================================================================
+18. UPDATED OBSTRUCTION AND ENDPOINT STATUS
+======================================================================
+
+First unresolved derivation edge remains:
+
+    abstract lattice and inherited assignments
+       --X-->
+    independently derived physical flavor operator and mass definitions.
+
+For the particular uncorrected lepton interpretation tested here, there
+is an additional explicit empirical obstruction: the fixed muon and tau
+ratios disagree with the reference masses at precision level.
+
+Needed for further progress:
+  - a derived selector and flavor correspondence;
+  - a specified correction/deformation law with independently fixed inputs;
+  - quark running and mass-scheme matching;
+  - a neutrino mechanism and three coefficients, or a W/Z/H sector if that
+    is the intended completion;
+  - a full theoretical uncertainty account before precision matching.
+
+Remaining derivation of a full Standard Model fit stops at this edge.
+
+Endpoint                                      Status
+PL-12 electron calibration and ratio law       B_TIER CONDITIONAL
+PL-13 rank-one anchor covariance               B_TIER CONDITIONAL
+PDG-2026 nine-state numerical audit             COMPLETED
+Bare charged-lepton precision mass fit          FAILS under stated interpretation
+Quark observable matching                       OPEN
+Twelve-mass completion                          OPEN
+Full physical Standard Model derivation         OPEN
+A-tier verification                             NOT CLAIMED
+
+======================================================================
+19. REFERENCES FOR THE CALIBRATED AUDIT
+======================================================================
+
+[EA1] Frozen word/sheet assignments:
+FRACTAL_RENDERER_B_TIER_ALGEBRA_v0_23.txt, initial "INHERITED CONDITIONAL
+INPUTS" register (lines 25-38 in the recovered text).
+https://chatgpt.com/library?file_id=libfile_a6712a9a02c88191b57d79e792463dbe&account_id=personal
+
+[EA2] NIST CODATA 2022, electron mass energy equivalent in MeV.
+https://physics.nist.gov/cgi-bin/cuu/Value?mec2mev%7Csearch_for=atomnuc
+
+[EA3] PDG 2026 lepton summary, electron/muon p.1 and tau p.2.
+https://pdg.lbl.gov/2026/tables/rpp2026-sum-leptons.pdf
+
+[EA4] PDG 2026 quark summary, light/heavy conventions and u,d,s,c,b p.1,
+top alternatives p.2.
+https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf
+
+[EA5] PDG 2026 top listing, direct-extraction interpretation p.1.
+https://pdg.lbl.gov/2026/listings/rpp2026-list-t-quark.pdf
+
+[EA6] PDG electroweak review, Yukawa parameters and mass conventions.
+https://pdg.lbl.gov/2025/reviews/rpp2025-rev-standard-model.pdf
+
+Reference tables were consulted on 2026-11-18.
+Central values were used without additional non-electron calibration.
+Independent static review checked the codebook ratios and normalization.
+No Lean execution or formal-verification claim.
+
+======================================================================
+20. CONDITIONAL NAME, COUNTS, AND THE LATTICE BEING TESTED
+======================================================================
+
+The user conditionally names the raw word/sheet pair
+
+    Q_GQ := (w,p),       E(w,p) = K n(w)^p,
+
+"Gravity-quantum-charge". The name alone establishes neither a physical
+gravitational charge nor an additive or conserved quantity.
+
+The inherited charged-fermion codebook contains nine pairs but eight
+distinct words: c and b share word 2 on different sheets. Closing the
+listed bare mass fibers supplies seven additional partner pairs:
+
+    e partner       (1000000,-1),  n=4096
+    mu partner      (100,-1),      n=16
+    tau partners    (1,-1), (1,+1)
+    u partner       (100000,-1),   n=1024
+    d partner       (12321,-1),    n=441
+    s partner       (121,-1),      n=25.
+
+Thus the selected closure has sixteen word/sheet pairs, thirteen distinct
+words, and nine distinct bare energies. These are conditional model
+counts, not an independently derived Standard Model particle count.
+
+Its block pattern is five doublets (e,mu,u,d,s), one tau triplet, and
+three singletons (c,b,t). With the earlier chosen Euclidean log metric,
+
+    L = <16> orthogonal_sum A_1^5 orthogonal_sum A_2,
+    rank(L)=8,      det(L)=1536,
+    D := L*/L = Z/16 + (Z/2)^5 + Z/3.
+
+Here + denotes direct sum of finite abelian groups. L* is the metric
+dual lattice inside V=span_R(L). The sixteen coordinate states must not
+be identified with the sixteen roots of the A_1^5 + A_2 root subsystem.
+
+The decomposition describes compatible logarithmic energy coordinates.
+By itself it specifies no time evolution and no particle reaction law.
+
+======================================================================
+21. WHAT PRESERVATION OF THE PRODUCT LAW WOULD MEAN
+======================================================================
+
+Let E_ji(t)>0 be a differentiable curve of energy coordinates. For fixed
+centers c_j and a possibly time-dependent common scale K(t)>0,
+
+    product_i E_ji(t) = (K(t)c_j)^(d_j)
+
+is preserved from an initial time if and only if
+
+    sum_i dot(E_ji)/E_ji = d_j dot(K)/K
+
+for every block along the curve. This follows by differentiating the
+logarithm; conversely integration and the initial product law suffice.
+For constant K, the right-hand side vanishes.
+
+This is an exact tangency criterion for a chosen flow on the compatible
+energy manifold. No supplied interaction equation currently proves this
+tangency. Rest energies assigned to different species are also not the
+total relativistic energy of a multi-particle decay. Ordinary energy
+conservation therefore does not imply these block-product identities.
+
+Even preservation of L as a set does not imply conservation of every
+label: a lattice automorphism can permute its elements and its dual
+residue classes.
+
+======================================================================
+22. SQUARE-LIFT MIXING CHANGES THE RAW WORD/SHEET LABEL
+======================================================================
+
+On the earlier bare Hilbert space define the bounded partial isometry
+
+    V_sq |n,-2> = |n^2,-1>,
+    V_sq |n,p>  = 0                 for p != -2.
+
+Let P|n,p>=p|n,p> and H_0|n,p>=K n^p|n,p>. Then
+
+    [P,V_sq]=V_sq,
+    [H_0,V_sq]=0.
+
+The second equality holds on Dom(H_0), which V_sq preserves, because
+
+    K n^(-2) = K (n^2)^(-1).
+
+Example: (1000,-2) maps to (1000000,-1); both have energy K/4096.
+Thus the available algebra contains a nontrivial map preserving bare
+energy while changing the raw pair Q_GQ. If this map is admitted as a
+transition, Q_GQ itself is not conserved by that transition.
+
+This is a conditional algebraic counterexample to automatic conservation,
+not evidence that the transition occurs physically. Commutation with
+H_0 alone does not supply an interacting field theory or conservation
+under all particle decays.
+
+======================================================================
+23. EXACT INTERACTION AND DECAY CONSERVATION CRITERION
+======================================================================
+
+To turn a label into an additive charge, specify an abelian group G and
+a map q:S->G on the species/state labels, including antiparticle rules.
+For an additive internal charge use q(antiparticle)=-q(particle).
+
+A reaction with incoming labels a_1,...,a_k and outgoing labels
+b_1,...,b_m preserves q precisely when
+
+    sum_r q(a_r) = sum_s q(b_s)               in G.
+
+For real charges, on finite-particle vectors let Q=sum_a q(a)N_a.
+A creation-annihilation vertex V with those input/output labels obeys
+
+    [Q,V] = (sum_out q - sum_in q) V.
+
+Hence a charge-diagonal free Hamiltonian and an interaction built from
+neutral vertices commute with Q on their common algebraic core. An
+operator-level conservation theorem also needs the appropriate domains
+and a compatible self-adjoint realization; no full interacting operator
+is constructed here.
+
+For finite G, use its characters chi:G->U(1). On a multi-particle state,
+U_chi acts by chi(sum_a q(a)N_a). A vertex transforms by
+
+    U_chi V U_chi^(-1) = chi(sum_out q - sum_in q) V.
+
+Because finite-group characters separate points, neutrality in G is
+equivalent to invariance under all U_chi. The correct exact symmetry
+criterion is [H,U_chi]=0 for every character, not commutation with an
+arbitrarily chosen integer representative of a modular charge.
+
+Equivalently, if the actual reactions supply integer columns
+B_v=(outgoing occupancies)-(incoming occupancies) in Z^S, then
+
+    real additive conserved charges = ker(B^T),
+    universal additive charge group = Z^S / span_Z{B_v}.
+
+These formulas are conditional on a supplied reaction list. The mass
+compatibility lattice L has not been derived as that reaction lattice.
+In particular its discriminant group L*/L is not automatically the
+universal physical charge group. Since L is primitive of rank eight,
+Z^16/L is torsion-free of rank eight, unlike the finite group D above.
+
+======================================================================
+24. A NATURAL FINITE GRADING FROM THE CHOSEN MASS LATTICE
+======================================================================
+
+There is nevertheless a specific candidate grading that can be tested.
+For the coordinate e_ji in block B_j of size d_j define
+
+    x_ji := P_V e_ji
+          = 1_16/16 + e_ji - 1_(B_j)/d_j,
+    q_ji := [x_ji] in D=L*/L.
+
+P_V is orthogonal projection for the already chosen log-coordinate
+metric. For any ell in L,
+
+    <x_ji,ell> = <e_ji,ell> = ell_ji in Z,
+
+so x_ji belongs to L*. For two coordinates in the same block,
+
+    x_ji - x_jk = e_ji - e_jk in L,
+
+so q is constant throughout that block.
+
+Let g_0=[1_16/16] have order sixteen. Each doublet contributes an
+independent order-two generator a_j, and the triplet contributes an
+order-three generator b. The sixteen coordinate labels have classes
+
+    e block       g_0+a_e
+    mu block      g_0+a_mu
+    u block       g_0+a_u
+    d block       g_0+a_d
+    s block       g_0+a_s
+    tau block     g_0+b
+    c,b,t         g_0.
+
+There are seven distinct classes. They generate D: a singleton supplies
+g_0, and subtraction from the other classes supplies a_j and b.
+
+Every mixing operator acting only within one of the selected bare mass
+fibers preserves this grading. Since the grading is already scalar on
+each such eigenspace, that fact supplies no extra interacting symmetry.
+
+For an interaction involving these states, the exact proposed selection
+rule is
+
+    sum_out x_ji - sum_in x_ji in L,
+
+equivalently equality of the total classes in D. Fields outside this
+selected set, including W and neutrinos, require specified additional
+grades before testing their vertices. The next section shows that no
+choice of those additional grades can repair one particular conflict.
+
+======================================================================
+25. FIRST PHYSICAL CONSERVATION OBSTRUCTION: MIXED WEAK CURRENT
+======================================================================
+
+Premises of this test:
+  (i) An exact unbroken additive abelian internal charge is claimed.
+ (ii) Named charged-lepton and neutrino mass eigenstates have definite
+      charges; one common W^- state participates in the vertices.
+(iii) For some neutrino mass eigenstate nu_i, both U_ei and U_mu_i are
+      nonzero in the ordinary mixed leptonic charged current.
+ (iv) Coupling constants carry no physical charge and no additional
+      charged insertion or symmetry-breaking background is included.
+
+The established mass-basis charged current contains terms proportional
+to W^-_mu bar(ell_alpha) gamma^mu P_L U_alpha_i nu_i, plus their
+Hermitian conjugates [CC1, equation 14.25]. In particle language these
+couplings permit W^- -> ell_alpha^- + anti(nu_i).
+
+Neutrality of each nonzero vertex requires
+
+    q_W - q_(ell_alpha) + q_(nu_i) = 0,
+
+or q_W=q_(ell_alpha)-q_(nu_i). Applying this to alpha=e and alpha=mu
+with the same i and subtracting gives the necessary equality
+
+    q_e = q_mu.
+
+This subtraction is valid in every abelian group, including finite
+groups. But Section 24 assigns
+
+    q_e-q_mu = a_e-a_mu != 0 in (Z/2)^5,
+
+because these are distinct independent doublet generators. Therefore
+
+    full projected discriminant grading
+      + exact unbroken conservation
+      + the ordinary shared-neutrino weak vertices
+    are incompatible.
+
+This is a conditional no-go theorem for this particular physical charge
+interpretation. It does not refute the abstract lattice decomposition,
+and it does not prove that every function of the original labels fails
+to be conserved.
+
+For Dirac neutrinos the antiparticle charge is -q_(nu_i). A Majorana
+state additionally satisfies q_(nu_i)=-q_(nu_i); the same subtraction
+still forces q_e=q_mu. Assigning formal transforming spurions to the
+couplings would change premise (iv), not establish the proposed exact
+particle charge in the stated theory.
+
+The physical conservation derivation stops at this obstruction. A
+coarser quotient that identifies a_e and a_mu may pass this particular
+test, but its conservation under all other interactions, mass terms,
+and quantum effects has not been established or classified here.
+
+======================================================================
+26. CONSERVATION ENDPOINT REGISTER, OBSTRUCTION, AND REFERENCES
+======================================================================
+
+Endpoint                                      Status
+PL-14 product-flow tangency criterion          EXACT CONDITIONAL B_TIER
+PL-15 square-lift commutators                  EXACT CONDITIONAL B_TIER
+PL-16 additive vertex neutrality               EXACT CONDITIONAL B_TIER
+PL-17 projected seven-class discriminant map   EXACT CONDITIONAL B_TIER
+PL-18 shared-neutrino weak-current no-go       EXACT CONDITIONAL B_TIER
+Raw word/sheet conservation                    NOT AUTOMATIC
+Full projected grading as exact weak charge    OBSTRUCTED under Sec.25
+Any surviving coarser physical charge          OPEN
+Gravity identification                        OPEN
+Complete interacting resonance spectrum       OPEN
+A-tier verification                           NOT CLAIMED
+
+Blocked edge for the current conservation target:
+
+    static lattice grading
+       --X-->
+    exact conserved charge of the mixed weak interaction.
+
+Cause: the projected grading distinguishes electron and muon classes,
+whereas shared-neutrino charged-current neutrality requires equality.
+Unresolved requirement: a precisely defined coarser charge together
+with a complete symmetry-compatible interaction law. This is a suggested
+next scoped endpoint, not a change to the user's project goal.
+
+The earlier independent physical selector, mass-definition, calibration,
+and full-spectrum obstructions remain in force. No measured masses were
+introduced in this conservation audit.
+
+[CC1] Particle Data Group, Neutrino Masses, Mixing, and Oscillations,
+2025 review, Section 14.3, equation 14.25 and the mass-basis conventions.
+https://pdg.lbl.gov/2025/reviews/rpp2025-rev-neutrino-mixing.pdf
+
+[CC2] David Tong, Quantum Field Theory lecture notes, Sections 1 and 3:
+Noether currents, charges, and interaction symmetries.
+https://www.damtp.cam.ac.uk/user/tong/qft/qfthtml/S1.html
+https://www.damtp.cam.ac.uk/user/tong/qft/qfthtml/S3.html
+
+[CC3] FRACTAL_RENDERER_B_TIER_ALGEBRA_v0_23.txt, inherited square-lift
+and partner-fiber construction; also see [EA1]. The projection grading
+and weak-current obstruction above are derivations in this document,
+not claims attributed to the PDG or to Tong.
+
+Independent static review checked the projection formula, finite-group
+conservation criterion, and shared-neutrino obstruction. No Lean,
+Lake, local kernel audit, or external formal verification was executed.
+
+======================================================================
+27. EXPLICIT FULL-GRADING VERTEX RULES
+======================================================================
+
+Continue with the projected grades of Section 24 and impose their exact
+additive conservation as a conditional selection rule. Antiparticles
+receive opposite grades. At this stage the selected sixteen states and
+their antiparticles are the only species counted.
+
+For each compatibility block B_j, let Delta_j be
+
+    (outgoing particles - outgoing antiparticles in B_j)
+      - (incoming particles - incoming antiparticles in B_j),
+
+and let Delta=sum_j Delta_j. Every partner in a block contributes to
+that block's count. The net grade of the vertex is exactly
+
+    delta_q = Delta g_0
+      + Delta_e a_e + Delta_mu a_mu + Delta_u a_u
+      + Delta_d a_d + Delta_s a_s + Delta_tau b_tau.
+
+Here b_tau denotes the order-three generator, avoiding confusion with
+the bottom-quark label b. The direct-sum decomposition proves
+
+    delta_q=0
+      iff Delta=0 mod16,
+          Delta_e=Delta_mu=Delta_u=Delta_d=Delta_s=0 mod2,
+          Delta_tau=0 mod3.
+
+These are necessary and sufficient for neutrality under this proposed
+grading. They are not sufficient for a nonzero physical amplitude.
+
+Examples, before any quotient or additional mediator is introduced:
+
+Channel                               Full-D grade test
+state -> partner in same block         passes
+e^- e^+ -> mu^- mu^+                   passes (each pair has grade zero)
+e^- e^- -> mu^- mu^-                   passes (2a_e=2a_mu=0)
+one selected particle -> two selected
+  particles                           fails (Delta=1 mod16)
+one particle -> two particles and
+  one antiparticle                    scale test passes; block tests remain
+
+The same-sign conversion example is an algebraic allowance, not a claim
+that this reaction occurs or a prediction of its rate. Spin, statistics,
+electric/color charges, and momentum conservation remain separate tests.
+The one-to-two restriction does not apply to emission of an additional
+neutral boson: such a boson is outside the selected sixteen-state set.
+
+======================================================================
+28. ONE-PARTICLE TRANSITIONS AND MEDIATOR GRADES
+======================================================================
+
+On the selected sixteen-dimensional one-particle space, define
+T_ab=|a><b|. Direct calculation gives
+
+    [H_0,T_ab]=(E_a-E_b)T_ab,
+    U_chi T_ab U_chi^(-1)=chi(q_a-q_b)T_ab.
+
+Therefore grade-neutral matrix elements require q_a=q_b; bare-energy
+preserving matrix elements require E_a=E_b. These are distinct tests.
+
+The full neutral matrix algebra has equal-grade multiplicities
+2,2,2,2,2,3,3. Hence
+
+    A_D = M_2(C)^5 + M_3(C)_tau + M_3(C)_(c,b,t),
+    dim_C(A_D)=38.
+
+Its intersection with the commutant of the selected bare Hamiltonian is
+
+    A_D intersect {H_0}' = M_2(C)^5 + M_3(C)_tau + C^3,
+    dimension=32.
+
+The six excluded off-diagonal entries connect c,b,t, whose grades agree
+but whose bare energies differ. If the names are interpreted as actual
+quarks, c and b also have different electric charges. Neutrality under
+D does not establish that a standalone c-to-b mixing is physical.
+
+The compact bare degeneracy algebra is u(2)^5 + u(3) + u(1)^3. Its
+semisimple root pattern is A_1^5 + A_2. This is a degeneracy statement,
+not a derived Standard Model gauge group, gauge field, or local symmetry.
+
+If an emitted mediator X is proposed for a -> b+X, its required grade is
+
+    q_X=q_a-q_b.
+
+For relativistic two-body decay, with E_a,E_b,E_X denoting positive rest
+energies, energy-momentum conservation also requires E_a>=E_b+E_X;
+positive phase space requires strict inequality in the ordinary massive
+case. This threshold is conditional on a relativistic interpretation
+of the bare labels, which the lattice itself has not supplied.
+
+The charge-difference rule determines neither the existence nor the
+mass, spin, or coupling of X. It cannot be used to announce a new boson
+without those additional inputs.
+
+======================================================================
+29. MINIMAL COARSENING FOR A PRESCRIBED REACTION LIST
+======================================================================
+
+Let R_set be a specified set of proposed reactions, and define their
+defects delta_v=sum_out q - sum_in q in an abelian grading group D.
+Let R be the subgroup generated by those defects. Then
+
+    D_allowed := D/R
+
+is the largest quotient of D in which every listed reaction is neutral.
+Proof: quotienting kills every delta_v. Conversely any homomorphism
+f:D->G making every listed reaction neutral kills all delta_v and their
+generated subgroup, so factors uniquely through D/R.
+
+This universal property gives a systematic response to the obstruction
+in Section 25. It retains that obstruction for the original D; it does
+not declare the old charge conserved. Introducing additional species
+requires specifying or solving for their grades consistently.
+
+======================================================================
+30. WEAK-CURRENT COMPATIBILITY: THE MAXIMAL QUOTIENT IS Z/16
+======================================================================
+
+Additional premises for this conditional physical comparison:
+  W1. Exact unbroken additive grades, definite on mass eigenstates.
+  W2. One common W^+ and its opposite-charge W^-; coupling constants
+      have no charge and no charged background insertions are used.
+  W3. The bipartite support graph of nonzero CKM couplings connects all
+      u,c,t and d,s,b vertices.
+  W4. The bipartite support graph of nonzero PMNS couplings connects all
+      e,mu,tau and the participating neutrino mass eigenstates.
+
+The mass-basis charged currents used here are standard input [IR1,IR2].
+Connected support is a structural premise; no numerical mixing angles
+or magnitudes are fitted. If a support graph were disconnected, the
+conclusion could retain additional factors on separate components.
+
+30.1 Quark constraints
+Every nonzero W^+ coupling requires
+
+    q_(u_i)-q_(d_j)=q_(W^+).
+
+Along a length-two path, this equates grades on the same side of the
+bipartite graph. Connectedness implies
+
+    q_u=q_c=q_t,       q_d=q_s=q_b.
+
+Since the inherited c,t,b grades are all g_0, this forces, in any
+compatible quotient,
+
+    a_u=a_d=a_s=0,     q_(W^+)=q_(W^-)=0.
+
+30.2 Lepton constraints
+Every nonzero W^- coupling requires
+
+    q_(ell_alpha)-q_(nu_i)=q_(W^-).
+
+Connectedness implies q_e=q_mu=q_tau, and all participating neutrinos
+have that same grade because q_(W^-)=0. Thus
+
+    a_e=a_mu=b_tau.
+
+The common image has order dividing both two and three, and therefore
+is zero. Hence a_e=a_mu=b_tau=0 in every compatible quotient.
+
+30.3 Maximality and explicit realization
+The necessary relation subgroup is
+
+    R_weak=<a_u,a_d,a_s,a_e-a_mu,a_e-b_tau>
+          =(Z/2)^5 + Z/3.
+
+Consequently
+
+    D_weak := D/R_weak = Z/16.
+
+No relation on g_0 is needed: assign every selected particle and every
+participating neutrino grade g_0, their antiparticles -g_0, and W^+,
+W^- grade zero. Every specified charged-current vertex is neutral.
+This proves sufficiency as well as necessity, so Z/16 is the maximal
+quotient within the stated ansatz and vertex list.
+
+On these matter states the remaining rule is signed particle-number
+conservation modulo sixteen. If all these states are subsequently
+assigned fermionic statistics, this can be called net fermion number
+modulo sixteen. It does not distinguish electric charge, lepton/quark
+type, flavor, or gravity. The lattice has not derived those quantum
+numbers or the weak-current couplings.
+
+For example, after the quotient and neutrino grade assignment,
+
+    mu^- -> e^- + anti(nu_i) + nu_j
+
+passes the grade test: g_0=g_0-g_0+g_0. A two-vertex weak amplitude
+additionally requires the appropriate nonzero mixing elements and the
+usual dynamical and kinematic conditions.
+
+This is compatibility with the specified weak vertices, not a theorem
+that Z/16 is an exact symmetry of the complete quantum theory. Other
+interactions, symmetry breaking, and quantum anomalies have not been
+assessed. No universal Standard Model charge classification is claimed.
+
+30.4 Optional Majorana constraint
+If a participating neutrino is self-conjugate under this exact charge,
+its grade equals its negative. Since its grade is g_0, this adds
+
+    2g_0=0.
+
+The largest further quotient is then (Z/16)/<2g_0>=Z/2. Equivalently a
+Majorana mass term with neutral coefficient imposes the same relation.
+This is conditional on that mass/self-conjugacy premise; no neutrino
+nature is inferred. With fermionic matter and neutral bosons, its action
+has the usual fermion-parity form. Exact quantum closure is not asserted.
+
+======================================================================
+31. INTERACTION FAMILY AND THE FIRST REMAINING DYNAMICAL OBSTRUCTION
+======================================================================
+
+Once fields, statistics, spacetime behavior, and a chosen grading G
+are supplied, an algebraic family of interactions can be written as
+
+    H_int = sum_(v:delta_q_v=0)
+              (g_v O_v + conjugate(g_v) O_v^dagger).
+
+The O_v must independently satisfy the required field, locality, spin,
+gauge, and domain conditions. This display is a template, not a proof
+of existence of an interacting self-adjoint continuum Hamiltonian.
+
+The grade test forces a non-neutral vertex coefficient to vanish if
+the grade is imposed as exact. It neither forces a neutral coefficient
+to be nonzero nor fixes its value, phase, momentum dependence, or scale
+dependence. The choices of all g_v=0 and of various allowed nonzero g_v
+are not distinguished by the given bare mass data and grading alone.
+
+The first remaining blocked edge is therefore
+
+    candidate neutral vertex algebra
+        --X-->
+    uniquely derived physical interaction operator and amplitudes.
+
+Cause: no action, vertex-generating operator, or independent rule fixes
+the fields and coefficients. Actual decay widths, cross sections,
+branching fractions, resonance poles, and mediator masses cannot be
+deduced at this edge. The physical derivation stops here.
+
+======================================================================
+32. INTERACTION ENDPOINT REGISTER
+======================================================================
+
+Endpoint                                      Status
+PL-19 explicit seven congruence tests          EXACT CONDITIONAL B_TIER
+PL-20 graded transition matrix algebra         EXACT CONDITIONAL B_TIER
+PL-21 universal reaction-defect quotient       EXACT CONDITIONAL B_TIER
+PL-22 connected weak-support quotient Z/16     EXACT CONDITIONAL B_TIER
+PL-23 additional Majorana quotient Z/2         EXACT CONDITIONAL B_TIER
+Full original grading under mixed weak current OBSTRUCTED (unchanged)
+Field/spin/gauge correspondence                OPEN
+Unique interaction coefficients               OPEN
+Full quantum conservation                     OPEN
+Physical mediator/resonance predictions        OPEN
+A-tier verification                           NOT CLAIMED
+
+Suggested next scoped endpoint: specify an independently motivated
+interaction-generating operator or action, then test its vertices and
+parameter count against these algebraic constraints. This suggestion
+does not change the user's active abstract-spectrum target or adopt a
+new macroscopic goal.
+
+======================================================================
+33. SOURCES AND VERIFICATION FOR THE INTERACTION AUDIT
+======================================================================
+
+[IR1] PDG 2025, CKM Quark-Mixing Matrix, Section 12.1, equation 12.2.
+https://pdg.lbl.gov/2025/reviews/rpp2025-rev-ckm-matrix.pdf
+
+[IR2] PDG 2025, Neutrino Masses, Mixing, and Oscillations,
+Section 14.3, equation 14.25; see also [CC1].
+https://pdg.lbl.gov/2025/reviews/rpp2025-rev-neutrino-mixing.pdf
+
+The PDG supplies the charged-current structure. The congruence rules,
+matrix-algebra dimensions, and quotient theorems are conditional
+derivations for this document's chosen grading, not PDG claims.
+
+Independent static reviews checked the signed-count congruences,
+matrix algebras, universal quotient, connected-support argument,
+coprime-order collapse, and optional Majorana reduction. No Lean,
+Lake, local kernel audit, or external formal verification was executed.
+
+======================================================================
+34. THE MINIMAL ROOTS GIVE EXPLICIT PARTNER TRANSITION OPERATORS
+======================================================================
+
+Fix the identified coordinate basis of the sixteen states. For each
+oriented difference r=e_a-e_b of distinct coordinates in one block,
+associate T_r=|a><b|. This identification of a coordinate difference
+with a transition direction uses the chosen basis. Treating minimal
+roots as interaction channels is an additional model choice.
+
+The squared-norm-two vectors of L are exactly these differences. Indeed
+the common scale direction has squared length sixteen and the remaining
+orthogonal root factors have minimum squared length two. At norm two,
+one factor contributes a root and all others vanish. Each doublet has
+one unordered pair and the triplet has three. Thus there are eight
+unordered channels (sixteen oriented operators), none at a singleton.
+
+An arbitrary Hermitian interaction supported on these off-diagonal
+channels has the form
+
+    H_root = sum_{unordered {a,b}} (k_ab |a><b| + k_ab* |b><a|),
+
+where one orientation per pair is chosen. Every term has grade zero,
+and commutes with the bare H_0 because the partners have equal bare
+energies. Commutation here permits coherent evolution within a fiber.
+For an isolated doublet initially in |b>, direct exponentiation gives
+
+    P(b -> a at t) = sin^2(|k_ab| t / hbar).
+
+Any sufficiently small k_ab gives a positive total Hamiltonian on the
+doublet with the same bare H_0 and grading. This example keeps the bare
+input fixed. The interacting eigenvalues themselves split. Even a
+positive dressed Hamiltonian with the fixed block product admits the
+family E_0 exp(s sigma_x), s real, with determinant E_0^2 and distinct
+transition frequencies E_0 |sinh(s)| / hbar. Inferring a nonzero rate
+or normalization from the bare energies already fails on one doublet.
+The root rule describes partner transitions. Actual charged weak
+doublets and their field operators require separate input (Section 36).
+
+======================================================================
+35. A SCALAR COUPLED TO THE COMMON SCALE
+======================================================================
+
+Use natural units hbar=c=1 from here onward. Write the bare mass matrix
+in a fixed diagonal basis as M(K)=K D, where D_aa=lambda_a=n(w_a)^p_a.
+The exact lattice-scale derivative is dM/dK=D. Give K a differentiable
+dependence on a real canonically normalized scalar h, fix K(0)=K_0>0,
+and hold all lambda_a, eigenvectors and split coordinates fixed. Then
+
+    dM/dh at zero = K'(0) D = [K'(0)/K_0] M(0).
+
+If f_a is a canonically normalized Dirac field with mass term
+-m_a(h) bar(f_a) f_a, its linear scalar interaction is
+
+    L_h^(1) = -h sum_a y_a bar(f_a) f_a,
+    y_a = K'(0) lambda_a.
+
+The convention for y_a here is the coefficient of the real scalar
+interaction in the mass basis. For nonzero response it gives
+
+    y_a/y_b = lambda_a/lambda_b = m_a(0)/m_b(0).
+
+One signed slope K'(0) controls all the coefficients. In the inherited
+charged-lepton assignment this gives y_e:y_mu:y_tau = 1:256:4096.
+This is a conditional ratio for those bare masses. Its physical
+interpretation inherits the lepton mass discrepancies of Section 17.
+The linear operator is diagonal and neutral under both candidate
+gradings if h is neutral.
+
+For example K(h)=K_0(1+h/v) yields y_a=m_a(0)/v. The electroweak
+single-Higgs-doublet model has this mass-basis scalar coupling at tree
+level [VO1]. Identifying h with the physical Higgs and fixing v would
+both require added physical input. The electron rest energy can fix
+K_0 under the codebook. It supplies no value for K'(0). Indeed every
+function K_0+s h has the same value at zero and derivative s.
+
+======================================================================
+36. CHARGED CURRENT FROM ONE LEFT-HANDED WEAK GENERATOR
+======================================================================
+
+Additional physical premises are canonical relativistic spinor fields,
+three weak doublets per quark or lepton sector, three light Dirac
+neutrinos, unitary weak-to-mass basis changes, and a minimally coupled
+SU(2)_L gauge field with a common real coupling g. The following branch
+uses the original assigned fermions and the added neutrinos. The seven
+additional partner addresses have no specified weak representation.
+
+In either sector, order the upper and lower weak components in two
+three-dimensional generation spaces. Take T^+_weak to have I_3 as
+its upper-right block and zero elsewhere, T^-=(T^+)^dagger, and
+T^3=diag(I_3,-I_3)/2. Write f_weak=S_f f_mass with S_f unitary for
+the left-handed fields. In the mass basis the upper-right block is
+
+    M = S_upper^dagger S_lower.
+
+Thus (T^+)^2=0, [T^+,T^-]=2T^3 and [T^3,T^+]=T^+ by multiplication.
+For quarks M=V=S_u^dagger S_d. For leptons in order (nu,ell),
+M=U^dagger, with U=S_ell^dagger S_nu. These are the CKM and PMNS
+conventions of the currents below [IR1,IR2]. Color is contracted in
+the quark current. Let P_L=(1-gamma^5)/2. Define
+
+    J^rho = bar(u) gamma^rho P_L V d
+           + bar(nu) gamma^rho P_L U^dagger ell.
+
+Expanding the fermion kinetic term with D_rho=partial_rho+i g W_rho^a
+T^a and W^+/-=(W^1 -/+ i W^2)/sqrt(2) gives the charged terms
+
+    L_CC = -(g/sqrt(2)) (W^+_rho J^rho + W^-_rho J^(rho dagger)).
+
+Thus the W^+ bar(u_i)d_j coefficient in this Lagrangian is
+-g V_ij/sqrt(2). The W^- bar(ell_alpha)nu_i coefficient is
+-g U_alpha_i/sqrt(2). The helicity projector and Lorentz contraction
+are specified parts of the operators. These vertices respect the
+Section 30 quotient because matter has grade g_0 and W has grade zero.
+
+The reduced strength is shared across vertices. For example
+sum_i |g U_alpha_i/sqrt(2)|^2 = g^2/2 for each charged lepton.
+The abstract masses alone allow arbitrary unitary relative bases:
+M_f M_f^dagger = S_f diag(m_f^2) S_f^dagger has the same mass
+eigenvalues for every S_f. Changing a relative basis can change the
+mixing angles while preserving the mass spectrum. The lattice has yet
+to supply either a weak generator relative to the labeled mass basis
+or a value of the coupling g.
+
+======================================================================
+37. ELIMINATING ONE W GIVES A MUON-DECAY OPERATOR
+======================================================================
+
+Assume a W mass M_W>0, tree-level single-W exchange, and momenta
+|q^2| much smaller than M_W^2 throughout the decay. To leading order
+in the derivative expansion the relevant W terms are
+
+    M_W^2 W^+ . W^- - (g/sqrt(2))(W^+ . J + W^- . J^dagger).
+
+Varying W^- and W^+ gives W^+=g J^dagger/(sqrt(2) M_W^2) and its
+conjugate. Substitution leaves the local operator
+
+    L_eff^(6) = -kappa J^dagger . J,
+    kappa = g^2/(2 M_W^2) = 4G_F/sqrt(2),
+    G_F/sqrt(2) = g^2/(8 M_W^2).
+
+The factors of four follow from using P_L on each fermion bilinear.
+The dimension of kappa is inverse energy squared. For the Dirac
+channel mu^- -> e^- + anti(nu_i) + nu_j the component is
+
+    O_ij = (bar(e) gamma^rho P_L nu_i)
+           (bar(nu_j) gamma_rho P_L mu),
+    L_eff contains -sum_ij C_ij O_ij + Hermitian conjugate,
+    C_ij = kappa U_ei conjugate(U_mu j).
+
+It has zero total grade in D_weak and reproduces the usual local
+charged-current normalization [VO1]. Derivative and loop corrections
+require extra terms. For the coefficient matrix C (electron row of U
+times conjugated muon row), every two-by-two minor vanishes:
+
+    C_ij C_kl = C_il C_kj.
+
+For nonzero g and three unitary light species, rank(C)=1 and
+
+    sum_ij |C_ij|^2 = kappa^2.
+
+The proof uses the separate unit norms of the e and mu rows. Thus an
+inclusive sum over all nine neutrino index pairs eliminates the mixing
+parameters in the squared coefficient. For an inclusive decay width
+the same cancellation applies when kinematic and spin factors are
+common to the pairs, as in the negligible-neutrino-mass limit. Phase
+space and the spinor matrix element still enter the width.
+
+======================================================================
+38. PARAMETER COUNT AND DERIVATION STATUS
+======================================================================
+
+The supported root directions specify eight candidate Hermitian links.
+Their eight complex coefficients in a fixed basis remain free before
+further conditions or basis rephasing. Common scalar response gives
+one slope for all linear diagonal coefficients and removes it from all
+nonzero coupling ratios. The weak charged current uses g plus mass-basis
+misalignment. At leading order in muon decay one dimensionful combination
+g^2/(2M_W^2) and two mixing rows suffice. The squared coefficient sum
+uses only that one dimensionful combination.
+
+PL-24 Minimal-root transition basis and doublet nonuniqueness    B_TIER
+PL-25 Linear common-scale scalar vertex and ratios               B_TIER
+PL-26 Weak generators, vertex coefficients and row norm         B_TIER
+PL-27 Leading muon-decay matching and rank-one identity         B_TIER
+
+All four endpoints are conditional on the displayed premises. The
+blocked edge from Section 31 is now explicit even in the smallest
+examples. At fixed bare masses, the doublet transition coefficient,
+the scalar slope, relative mass bases and weak normalization can be
+varied independently in the indicated constructions. A physical
+action or independently fixed parameters are needed to select them.
+No numerical strengths, decay widths, or new resonances are inferred.
+No formal compiler or kernel verification was performed.
+
+======================================================================
+39. SOURCES FOR THE CONDITIONAL WEAK AND SCALAR MATCHING
+======================================================================
+
+[VO1] Particle Data Group, Electroweak Model and Constraints on New
+Physics, 2025 review, Sec. 10.1, Eq. 10.2 and the low-momentum
+four-fermion matching. See [IR1,IR2] for flavor mixing.
+https://pdg.lbl.gov/2025/reviews/rpp2025-rev-standard-model.pdf
+
+======================================================================
+40. JOINT LIE ALGEBRA FOR ANY FINITE NONEMPTY BLOCK LIST
+======================================================================
+
+Keep the marked coordinates, sizes d_j and positive dimensionless
+centers c_j of Sections 1-4. Let B_j=C^{d_j}, H_F=direct_sum_j B_j,
+N=sum_j d_j. Use the matrix commutator as the Lie bracket. Define
+
+    g_F = {direct_sum_j X_j : tr(X_j)/d_j is the same for all j}.
+
+The common normalized trace t yields the unique decomposition
+
+    X=t I_N + direct_sum_j Y_j,       tr(Y_j)=0,
+    g_F = C I_N + direct_sum_j sl(d_j,C).                (40.1)
+
+The summands commute across different blocks. Every commutator has
+trace zero on each block, proving Lie closure. Take sl(1,C)=0.
+Ordinary matrix multiplication generates the associative algebra
+described in Section 42. The two operations encode different structure.
+
+The diagonal Cartan subalgebra h_F meets R^N in V_d. Indeed, its
+normalized diagonal sums are precisely the common block averages in
+Section 3. Its integral diagonal exponent vectors are exactly L_d.
+For E_ab=|a><b| inside a block and diagonal h, direct multiplication
+gives [h,E_ab]=(h_a-h_b)E_ab and [E_ab,E_ba]=E_aa-E_bb.
+These differences span the traceless diagonals. Conversely I_N and
+all within-block E_ab, a!=b, generate precisely g_F under brackets
+and linear combinations. This proves minimality for these generators.
+It also explains why the roots are indexed by ordered pairs in one
+block. For a general partition they should be read from these
+operators, even when some other lattice vector has the same length.
+
+    rank(g_F)=1+sum_j(d_j-1),
+    dim_C(g_F)=1+sum_j(d_j^2-1),
+    number of one-dimensional root spaces=sum_j d_j(d_j-1).
+
+40.1 Integral form and global group
+The compact matrix group generated by one common phase and special
+unitaries in each block is the image of (z,(S_j))->diag_j(z S_j).
+Its kernel consists of (z,(z^{-1}I_j)) with z^d_j=1 for every j.
+For g=gcd_j d_j this kernel is the cyclic group mu_g. Therefore
+
+    G_F = (U(1) x product_j SU(d_j))/mu_g.
+
+The diagonal torus has Lie algebra i V_d. A coordinate circle winds
+v_a times in each diagonal entry, with all v_a integral. It lies in
+that torus exactly when its tangent v belongs to V_d. Thus the torus
+cocharacter lattice (integer circle windings) is L_d, including the
+index-g saturation of Section 4. The group image is compact and
+connected. On Hermitian diagonals tr(H H') is the Euclidean metric
+chosen in Section 1. Within-block Weyl permutations act by permuting
+the diagonal entries. The standard type-A background is given in [JA1].
+
+======================================================================
+41. MASS OPERATORS AND THE SIXTEEN-STATE SPECIALIZATION
+======================================================================
+
+Let C_F=direct_sum_j c_j I_j be the marked center operator. Positive
+Hermitian block mass operators with a common normalized geometric mean
+are parameterized exactly by
+
+    M_j=K c_j exp(H_j),    K>0,   H_j=H_j^dagger,  tr(H_j)=0. (41.1)
+
+Indeed det(M_j)=(K c_j)^{d_j}. Conversely for any such positive
+M_j the common K is fixed by its block determinants. The Hermitian
+logarithm of M_j/(K c_j) then gives the unique H_j. Restricting to
+diagonal matrices returns every labeled mass assignment of Section 2.
+At a reference energy K_ref, log(M_j/(K_ref c_j)) has the common
+trace average log(K/K_ref). Diagonalizing each block gives the
+unordered spectra modulo product_j S_{d_j}. Rotation of eigenvectors
+is an admitted matrix extension of the original diagonal model.
+
+For five doublets, one triplet and three singletons we obtain
+
+    g_16 = C I_16 + sl(2,C)^5 + sl(3,C),
+    G_16 = U(1) x SU(2)^5 x SU(3).
+
+There are eight Cartan directions (one common scale, five doublet
+splits, two triplet splits) and sixteen off-diagonal root directions
+(ten from the doublets and six from the triplet). Dimension is 24.
+The Cartan integer lattice with trace metric is
+
+    <16> orthogonal_sum A_1^5 orthogonal_sum A_2.
+
+Here the compact common phase and the positive mass scale correspond
+to the imaginary and real scalar directions in the complex algebra.
+The compact group describes block basis geometry. The weak generator
+of Section 36 still uses the separately assigned physical doublets.
+
+======================================================================
+42. ASSOCIATIVE ALGEBRA WITH THE MASS CENTERS INCLUDED
+======================================================================
+
+For distinct marked c_j, let A_F be the unital associative complex
+*-algebra generated by C_F and g_F. The spectral projection onto B_j is
+
+    P_j = product_{k!=j} (C_F-c_k I)/(c_j-c_k).
+
+These projections and the E_ab generate every matrix unit in every
+block. Conversely products, sums and adjoints preserve the block
+decomposition. Consequently
+
+    A_F = direct_sum_j M_{d_j}(C).
+
+For separately marked blocks with repeated c_j, include their P_j
+explicitly. For fibers of the bare mass operator, equal energies by
+definition belong to the same fiber. In the bare case A_F is the full
+commutant of H_0 restricted to these fibers. After a mass splitting,
+C_F can still mark the original blocks, while commutation with the
+split mass operator imposes further restrictions.
+
+For the present sixteen states
+
+    A_16 = M_2(C)^5 + M_3(C) + C^3,       dim_C=32.
+
+Thus (g_F, C_F) distinguishes the common mass direction, internal
+transition directions and individual mass centers. The three singleton
+energies remain visible in C_F even though sl(1,C)=0.
+
+======================================================================
+43. TRUNCATION, ADDING BLOCKS, AND ADDING TRANSITIONS
+======================================================================
+
+Use complete bare energy fibers as truncation units. For an enlarged
+list F'=F union {a new block of size k}, the Lie embedding preserves
+the common scalar and extends old traceless blocks by zero. In the
+new physical coordinates the image is diag(X,t I_k) for X in g_F.
+One independent sl(k,C) is added. Thus
+
+    Delta(rank)=k-1,       Delta(dim_C)=k^2-1.
+
+A new singleton adds an energy marker without adding an internal
+generator. Increasing an EXISTING block d to d+1 instead adds one
+Cartan direction and 2d directed roots. The dimension increases by
+2d+1. These are different operations.
+
+The associative inclusions A_F -> A_F' used for finite-support
+observables extend matrices by zero. Their units map to the old
+support projections. On the block-preserving algebra compression
+recovers the finite truncation. The common Lie scalar acts on new
+coordinates as well, so its continuation follows the Lie embedding.
+
+For the present gcd-one lattice an old integral exponent vector with
+common block mean t has integer t. Giving all new entries that same t
+embeds it integrally in the enlarged lattice. Its common generator
+has squared norm N+k in the enlarged trace metric. The embedding
+preserves the marked old coordinates and need not preserve their
+total metric norm. For a general old partition a lift at mean t
+into a new size-k block exists iff k t is an integer. Necessity
+follows by summing integer entries. Sufficiency follows by choosing
+the entries (k t,0,...,0). The uniform lift specifically requires
+integral t.
+
+Example extending the selected sixteen addresses: the unlisted
+fiber at K/9 is (n,p)=(3,-2),(9,-1). Adjoining this whole doublet
+gives N=18 and g=1 with
+
+    g_18 = C I_18 + sl(2,C)^6 + sl(3,C),
+    L_18 = <18> orthogonal_sum A_1^6 orthogonal_sum A_2,
+    rank=9, dim_C(g_18)=27.
+
+The K/9 fiber comes directly from the assumed bare word/sheet law.
+The selected sixteen addresses form a finite catalog inside the full
+bare spectrum. They are not the set of all states in an energy window.
+
+There is also a different way of joining existing blocks. If an
+actual extra operator with a nonzero matrix element between two
+blocks is supplied, A_F, this operator and its adjoint generate all
+matrix units between those blocks: isolate the nonzero entry with
+the old matrix units, then compose with the other matrix units.
+For a finite set of blocks and added edges the resulting algebra is
+
+    direct_sum_{connected components C} M_{sum_{j in C} d_j}(C).
+
+This statement uses ordinary products and adjoints. An edge between
+unequal bare energies changes bare energy in the one-particle space.
+Charge balance, possible mediators and dynamical coefficients are the
+separate requirements derived in Sections 23-38. Supplying the edge
+is the input to this algebraic closure theorem.
+
+======================================================================
+44. EXPLICIT DECOMPOSITION FOR THE ENTIRE BARE WORD/SHEET MODEL
+======================================================================
+
+From Section 7 the energy K has one size-three fiber. Each K/n^2 for
+n>=2 has one size-two fiber. The singleton index set S consists of
+Km for integers m>=2 and K/q for nonsquare integers q>=2. There is
+no state at zero. Hence on the full word/sheet basis the Lie algebra
+with a common scalar and finitely supported traceless block changes is
+
+    g_full = C I + sl(3,C) + direct_sum_{n>=2} sl(2,C).       (44.1)
+
+The direct sum in (44.1) is algebraic. The single common identity
+acts on all states, including the singletons. Formula (44.1) is the
+direct limit of the Lie embeddings in Section 43. The finite trace
+normalization of I_N does not define a finite trace norm for I on
+the full infinite list. Equation (44.1) requires no such norm.
+
+The norm closure of the associative finite-support block matrices is
+
+    A_full,0 = M_3(C) + c_0({n>=2},M_2(C)) + c_0(S,C).       (44.2)
+
+Here c_0 means that for each positive tolerance only finitely many
+blocks have operator norm above it. Truncating tails proves the
+norm-closure claim. The bounded algebra commuting with every bare
+spectral projection is instead the bounded product over these same
+matrix blocks. A bounded family commutes with every projection
+exactly when it preserves every fiber. The global I belongs to the
+bounded product. The unbounded bare H_0 is specified by its
+eigenvalues and spectral projections on the domain in Section 7.
+
+Finite positive windows [epsilon,Lambda], epsilon>0, select finite
+direct sums of complete blocks. Exhausting the positive axis by such
+windows recovers (44.1)-(44.2) with their respective embeddings.
+For fixed symbolic Lambda_LHC use just the displayed factors with
+E<=Lambda_LHC. Passing epsilon down to zero retains infinitely many
+reciprocal fibers under every positive upper cutoff.
+
+======================================================================
+45. JOINT ALGEBRA ENDPOINT REGISTER
+======================================================================
+
+PL-28  Equal normalized traces, Cartan and cocharacter lattice   B_TIER
+PL-29  Positive mass representation and 24-dimensional algebra  B_TIER
+PL-30  Associative block algebra and finite joining rule        B_TIER
+PL-31  Cutoff embeddings and full bare decomposition            B_TIER
+
+All are conditional on the marked blocks and earlier bare spectrum.
+Equations (40.1) and (41.1) apply to any chosen finite partition.
+Equation (44.1) additionally uses the three-sheet multiplicity law.
+The algebra permits extensions once given a block or a coupling. The
+physical identification of new blocks, centers and nonzero couplings
+is still the unresolved dynamical edge. No mass calibration was added.
+The derivations were checked algebraically without formal execution.
+
+[JA1] B. Conrad, Math 210C, Compact Lie Groups, classical compact
+groups, diagonal tori and type-A roots.
+https://math.stanford.edu/~conrad/210CPage/handouts/lie_groups_notes.pdf
+
+======================================================================
+46. THE ORDERED SIXTEEN-STATE MODULE
+======================================================================
+
+Take an orthonormal vector for each distinct inherited address (w,p),
+using the canonical base-four word w without leading zeros. Use the
+following order. Entries in a row are ordered by increasing sheet p.
+Energies are in units of the symbolic scale K>0.
+
+positions   block  addresses (w,p)                             E/K
+1,2         e      (1000,-2), (1000000,-1)                    1/4096
+3,4         mu     (10,-2), (100,-1)                          1/16
+5,6         u      (200,-2), (100000,-1)                      1/1024
+7,8         d      (111,-2), (12321,-1)                       1/441
+9,10        s      (11,-2), (121,-1)                          1/25
+11,12,13    tau    (1,-2), (1,-1), (1,+1)                     1
+14          c      (2,-1)                                     1/2
+15          b      (2,+1)                                     2
+16          t      (1111,+1)                                  85
+
+The space is H=C^2_e + C^2_mu + C^2_u + C^2_d + C^2_s + C^3_tau
+              + C_c + C_b + C_t, an orthogonal direct sum.
+There are thirteen words, sixteen addresses and nine energies.
+The five SU(2) factors of Section 41 act by their respective
+two-dimensional fundamental representations, SU(3) by its fundamental
+representation on the tau block, and neither acts on c,b,t. The
+common U(1) multiplies all sixteen states by the same scalar z. This
+representation is faithful: any element acting trivially has z=1 on
+a singleton, then has identity in each simple factor by restriction.
+
+Define D=H_0/K (a bare energy matrix in this section), N|w,p>=n(w)|w,p>,
+and P|w,p>=p|w,p>. The finite-dimensional spectral identity is
+
+    D=exp(P log N).
+
+In particular the addresses of c and b share n but have different p.
+The three tau addresses share both n and energy but have different p.
+For any fixed p in the table, n -> n^p is injective. Thus (D,P)
+separates all sixteen states and N=exp(P^{-1} log D).
+
+======================================================================
+47. ONE DIMENSIONLESS MATRIX FOR THE MASS BLOCKS AND SHEET ORDER
+======================================================================
+
+Write lambda_j for the last column of the table and d_j for the
+number of addresses in that row. Define S_d e_r=e_(r+1) for r<d,
+and S_d e_d=0. In particular S_1=0. Set
+
+    J_d(lambda)=lambda I_d+S_d,
+    B=direct_sum_j J_{d_j}(lambda_j) = D+S.                 (47.1)
+
+Here the shifts of size one and the increasing-sheet order are an
+encoding convention. B is a non-Hermitian generator in a marked
+orthonormal basis. The energy observable is the Hermitian matrix KD.
+No physical transition strength is set to one by this choice.
+
+Explicitly, D is the diagonal of block energies in Section 46.
+Writing E_ab=|a><b| for its listed positions, all the off-diagonal
+entries of B are specified by
+
+    S=E_21 + E_43 + E_65 + E_87 + E_(10,9) + E_(12,11) + E_(13,12).
+
+S has rank seven, S^2=E_(13,11) has rank one, and S^3=0. Taking
+adjoints supplies the reverse orientation. The squared shift supplies
+the third pair in the triplet, so the construction contains all eight
+unordered partner pairs.
+
+======================================================================
+48. EXACT RECONSTRUCTION AND THE TWO GENERATED ALGEBRAS
+======================================================================
+
+Each row is one Jordan block with its own lambda_j. Its minimal
+polynomial is (x-lambda_j)^d_j. These factors are relatively prime
+for different rows, so the minimal polynomial of B is their product.
+It has degree sixteen and equals the characteristic polynomial.
+The Chinese remainder theorem gives
+
+    C[B] = C[x]/(product_j (x-lambda_j)^d_j)
+         isomorphic to (C[t]/(t^2))^5 + C[t]/(t^3) + C^3.
+
+This algebra of polynomials in B is commutative of dimension sixteen.
+For a concrete reconstruction choose a polynomial f_j congruent to 1
+modulo (x-lambda_j)^d_j and 0 modulo every other block factor.
+Then R_j=f_j(B) is precisely the orthogonal block projection, since
+each congruence evaluates to its constant on the corresponding block.
+In particular D=sum_j lambda_j R_j and S=B-D are recovered exactly.
+This is the elementary primary decomposition argument [F16-1].
+
+Let Alg*(B) denote the unital algebra generated by B and its adjoint.
+In the chosen orthonormal basis I-SS^dagger projects onto the first
+state of every row. For r,s=1,...,d_j,
+
+    F_{j,11}=R_j(I-SS^dagger),
+    F_{j,rs}=S^{r-1} F_{j,11} (S^dagger)^{s-1}
+            = |j,r><j,s|.
+
+This proves that all sixteen individual state projectors and every
+within-block transition are present. Conversely, both B and B^dagger
+are block diagonal. Hence
+
+    Alg*(B) = M_2(C)^5 + M_3(C) + C^3,   dim_C=32.          (48.1)
+
+Its center is the nine-dimensional span of R_j. The sixteen
+F_{j,rr} span the full algebra of diagonal address observables.
+Using the table on these projectors reconstructs P, N and the
+original base-four words. This reconstruction retains the chosen
+sheet/address correspondence as an input. The matrix spectrum alone
+does not name species or fix a labeling of its basis.
+
+The associated mass Lie algebra is recovered inside (48.1) by
+requiring equal normalized block traces. Its dimension is twenty-four:
+
+    g_16=C I_16 + sl(2,C)^5 + sl(3,C).
+
+Real integral diagonals satisfying that trace condition recover
+L_d=<16> orthogonal_sum A_1^5 orthogonal_sum A_2. With the marked
+energies lambda_j, all admitted positive block mass matrices can be
+written K D exp(X) for Hermitian X with traceless block restrictions
+and no off-block entries. The bare mass occurs at X=0.
+
+======================================================================
+49. FINITE ENDPOINT AND MINIMALITY
+======================================================================
+
+One matrix B suffices as a unital *-algebra generator. A single
+Hermitian matrix alone generates a commutative unital *-algebra,
+by its spectral theorem. Thus a one-generator description of the
+noncommutative algebra requires a nonnormal generator, as in (47.1).
+Equivalently, the Hermitian real and imaginary parts of B form a pair
+of Hermitian generators. KD itself distinguishes only the nine
+energy blocks. This establishes minimality in the stated sense of
+generator count, conditional on the nine centers and the sheet table.
+
+PL-32  Explicit basis and simultaneous address and energy observables
+PL-33  Single matrix encoding, reconstruction and minimality
+Both endpoints are B-tier deductions under the inherited codebook.
+The algebra realizes each selected address and partner direction.
+Selecting physical amplitudes and identifying partners experimentally
+still requires the dynamics specified as open in Section 38.
+
+======================================================================
+50. LINEAR ALGEBRA REFERENCE
+======================================================================
+
+[F16-1] G. Moore, linear algebra lecture notes, section 10.4.1 on
+primary decomposition and Jordan canonical form.
+https://www.physics.rutgers.edu/~gmoore/618Spring2018/GTLect2-LinearAlgebra-2018.pdf
+
+======================================================================
+51. TRANSPORTING A CHARGE THROUGH THE ADDRESS CHANGE
+======================================================================
+
+On the admitted positive addresses let T(n,p)=(lambda,p), lambda=n^p.
+The inverse is (lambda,p) -> (lambda^(1/p),p). For a charge map q
+into an abelian group and a reaction among labeled legs, transport q
+as q'=q composed with T inverse. Each leg then has q'(T(a))=q(a).
+The signed sum of grades at the vertex is identical in both address
+systems. Apply the inverse-charge convention to antiparticles.
+
+This proves that an actual change of coordinates preserves any
+already supplied conservation rule. The same identity applies when a
+physical name is replaced by its marked seed address. Extension to
+the seven unmarked partners requires an assignment of their charges.
+In particular the transformation supplies no additive law for p.
+
+======================================================================
+52. THE SHEET GRADES THE MATRIX ALGEBRA
+======================================================================
+
+In the basis of Section 46 let P=diag(p_a). For a matrix unit
+E_ab=|a><b| in the same mass fiber,
+
+    [H_0,E_ab]=0,        [P,E_ab]=(p_a-p_b) E_ab.
+
+Giving E_ab the integer degree p_a-p_b defines a grading. Nonzero
+products compose as E_ab E_bc=E_ac, so degrees add. Adjoint reverses
+the degree. For the specific unit shift S of Section 47,
+
+    [P,H_0]=0,        [P,S]=S+E_(13,12) != 0.
+
+The tau shift from position 12 to 13 goes from -1 to +1 and thus
+has degree two. On the electron pair the forward shift has degree
+one. P is conserved in bare time evolution. In finite dimension,
+for a fixed self-adjoint Hamiltonian H, conservation of P on all
+states is equivalent to [P,H]=0. Within A_16=Alg*(B), each p occurs
+at most once per mass fiber. Hence
+
+    {X in A_16 : [P,X]=0} = all diagonal matrices = C^16.
+
+If p is imposed as an exact additive charge, a lone nonzero partner
+hopping term fails this test. Other legs may balance its degree in
+a multiparticle term. For example, at a -> b+X they must contribute
+q_X=p_a-p_b in the numerical sheet convention. This balance gives
+a required grade, without supplying an actual mediator. The choice
+of S as an encoding matrix remains independent of its use as dynamics.
+
+An electric charge constant on each fiber commutes with every
+within-fiber matrix. Assigning the seven partners the electric charge
+of their respective seeds realizes this extension mathematically.
+Their actual electric and weak properties have no measured assignment
+in this model.
+
+======================================================================
+53. THREE CHARGED-CURRENT VERTICES FORCE SHEET-ONLY CHARGES TO BE CONSTANT
+======================================================================
+
+Suppose q=f(p) on the marked particle seeds, with values in any abelian
+group. Let the conventional W^+ have a single grade w, antiparticles
+opposite grade, and all interaction coefficients grade zero. A nonzero
+CKM entry V_ij for W^+ coupling an up-type quark i to a down-type
+quark j requires w=f(p_i)-f(p_j) [IR1].
+
+    entry       sheets (up,down)          required w
+    V_ud             (-2,-2)              0
+    V_cd             (-1,-2)              f(-1)-f(-2)
+    V_cb             (-1,+1)              f(-1)-f(+1)
+
+All three entries occur in the ordinary charged current. Equating
+their required w yields w=0 and f(-2)=f(-1)=f(+1). Thus a conserved
+function of sheet alone cannot distinguish sheets, even for finite
+abelian values or after a nonlinear relabeling. This proof needs
+neither numerical CKM values nor a partner transition. For raw p,
+the first two entries already require incompatible values 0 and 1.
+
+For comparison, allowing an independently assigned species charge
+changes the answer. With connected quark and lepton charged-current
+support as in Section 30, Dirac-type bookkeeping, and neutral
+within-fiber partner links, assign x_U to up-type quarks, x_D to
+down-type quarks, x_L to charged leptons and each seed's grade to its
+partners. Necessity by cancellation along each support graph and
+sufficiency by substitution give
+
+    q(W^+)=x_U-x_D,  q(W^-)=-q(W^+),  q(nu)=x_L+x_U-x_D.
+
+These three parameters in the chosen abelian group describe precisely
+the assignments on this species list for these vertices. Further mass
+terms or interactions may reduce the freedom. In units of positive
+elementary charge, x_U=2/3, x_D=-1/3, x_L=-1 yield q(W^+)=1 and
+q(nu)=0. Electric charge therefore fits this algebra and these vertices
+without needing a new sheet charge.
+
+======================================================================
+54. THE SEPARATE COMMON MATTER GRADE UNDER ELECTROWEAK TOPOLOGY
+======================================================================
+
+Section 30 restricted the projected discriminant group to quotients
+compatible with the ordinary connected weak currents. Its common
+generator g_0 in Z/16 assigns +1 to every matter particle, -1 to its
+antiparticle and zero to W. This is independent of p.
+
+On ordinary quarks, leptons and weak gauge bosons the assignment
+already equals F=3 B_bar + L_lep modulo 16. Here B_bar is baryon
+number (1/3 per quark) and L_lep is total lepton number (1 per lepton).
+Opposite signs apply to antiparticles. This expression describes the
+assignment; whether a process preserves it is a separate calculation.
+
+Add as physical input the standard three-generation electroweak
+topological selection rule with unchanged chiral field content. A
+unit change of winding has Delta B_bar=Delta L_lep=3 up to an overall
+sign [SC1]. It changes F by 12. The largest quotient of the earlier
+labels compatible with weak vertices AND this process is therefore
+
+    (Z/16)/<12> = Z/4.
+
+Indeed 12g_0=0 and 16g_0=0 imply 4g_0=0, and the unit generator of
+Z/4 realizes both. On ordinary states with integer L_lep,
+
+    F = 3(B_bar-L_lep)+4L_lep,
+    F mod 4 = 3(B_bar-L_lep) mod 4.
+
+If a participating neutrino additionally has a Majorana mass with a
+neutral coefficient, the common matter grade must satisfy 2g_0=0.
+The largest quotient for these combined tests is then Z/2, acting as
+fermion parity on the specified particles and neutral bosons.
+
+This is an operator/selection-rule test using the ordinary anomaly
+coefficient. The seven unmarked partners have no assigned electroweak
+representations. If they were additional chiral fields, the relevant
+anomaly coefficient would have to be computed for that theory. No
+collider observation or all-interactions conservation claim enters.
+
+======================================================================
+55. ENDPOINTS AND PHYSICAL OBSTRUCTION
+======================================================================
+
+PL-34 Transport of charge balance and exact sheet grading             B_TIER
+PL-35 Sheet-preserving subalgebra and three-vertex obstruction        B_TIER
+PL-36 Connected-current species charges and electric charge example   B_TIER
+PL-37 Common-grade quotient for ordinary electroweak topology         B_TIER
+
+These are conditional algebraic results. The obstruction to an exact
+sheet-dependent additive charge already occurs in Section 53.
+Operational meaning for a nonconserved sheet observable would require
+an independently specified coupling or measurement distinguishing the
+partners. No such observable has been established here.
+
+[SC1] CMS Collaboration, A search for microscopic black holes, string
+balls, and sphalerons in proton-proton collisions at sqrt(s)=13 TeV,
+JHEP 08 (2026) 098, introduction.
+https://doi.org/10.1007/JHEP08(2026)098
+https://lss.fnal.gov/archive/2026/pub/fermilab-pub-26-0256-cms.pdf
+See also E. Shuryak and I. Zahed, arXiv:2102.00256 (2021),
+https://arxiv.org/abs/2102.00256 (electroweak selection rule in abstract).
+For the ordinary weak vertices and CKM support, see [IR1].
+
+======================================================================
+56. ESTABLISHED ANCHORS BEFORE SELECTING A PARTICLE ADDRESS
+======================================================================
+
+The register below concerns the three charged leptons and six quark
+flavors. It uses one flavor index per named particle. Spin projections,
+color components, momenta and antiparticles are suppressed in this
+finite register. Flavor-space dimensions count labels in that register.
+
+1. Particle and representation content. The three charged leptons,
+   three up-type quarks and three down-type quarks have spin 1/2.
+   Leptons are color singlets, and the quark fields are color triplets.
+   Weak representations are assigned to chiral fields. The ordinary
+   left-handed charged current couples members of weak doublets.
+   A pair of lattice coordinates at equal mass does not identify a
+   weak doublet. [A1-A3]
+
+2. Exact electric-charge bookkeeping in the Standard Model. Charges
+   in units of positive e are -1, +2/3 and -1/3 for these three
+   sectors. Charges reverse for antiparticles, and the total incoming
+   and outgoing charge must balance at every physical vertex. [A1-A3]
+
+3. Relativistic kinematics. For on-shell particles in natural units,
+   P^2=m^2. A decay or scattering process conserves total four-momentum.
+   In a decay into freely propagating on-shell bodies this gives the
+   usual invariant-mass threshold. A sum or product of the tabulated
+   rest masses need not be conserved by the decay. Applying a free
+   on-shell interpretation to an isolated confined quark would require
+   more than assigning a flavor index. [A4,A5]
+
+4. Fermion mass matrices. At a specified order, renormalization scheme
+   and scale where applicable, and with canonical kinetic terms, use
+   the singular values of the Dirac mass matrix. In the one-doublet
+   Standard Model the tree-level charged-fermion relation is
+   M_f=v Y_f/sqrt(2). This allows arbitrary Yukawa spectra. [A1,A3]
+
+5. Observed interaction structure. Quark charged currents involve
+   CKM mixing, so an additional exact charge must balance on every
+   nonzero coupling, including ud, cd and cb. The mass singular
+   values alone do not specify that mixing. For vertices involving
+   neutrinos one must also track lepton mixing in the chosen basis.
+   Sections 25 and 53 give finite tests using these external inputs.
+   [A1,A3,IR2]
+
+======================================================================
+57. ALGEBRAIC CONSEQUENCES WITH NO WORD/SHEET HYPOTHESIS
+======================================================================
+
+Order the conventional flavor register as (e,mu,tau),(u,c,t),(d,s,b).
+Then Q_9=diag(-I_3,(2/3)I_3,-(1/3)I_3) is fixed by the charges alone.
+For a flavor matrix X, [Q_9,X]_ab=(q_a-q_b)X_ab. Consequently
+
+    {X in M_9(C) : [Q_9,X]=0} = M_3(C) + M_3(C) + M_3(C).
+
+This 27-dimensional algebra is the possible support of electric-charge
+neutral flavor operators. It leaves their actual entries, the masses,
+and any mixing amplitudes free. A map on these nine flavors absorbing
+one unit of electric charge obeys [Q_9,X]=X. Its only possible sector
+is from down-type to up-type quarks. Leptonic charged-current maps
+require the additional electrically neutral neutrino states. Physical
+weak vertices further select left chirality and the mixing matrices.
+
+One anchor rejects several candidate identifications immediately.
+Charm and bottom share word 2 and projected class g_0 but have
+different electric charges. Bottom and top share sheet +1 but also
+have different electric charges. Thus neither the word alone, the
+sheet alone, nor the projected class alone can supply electric charge
+on the seed table. A full-address charge lookup is additional input.
+
+For a second consequence take a nonsingular Dirac mass matrix M_f for
+one charge sector, with positive mass singular values m_1,m_2,m_3. All
+entries are given in mutually consistent mass units and conventions.
+Taking absolute determinants in the singular-value decomposition gives
+
+    product_i m_i = |det M_f|,
+    G_f = |det M_f|^(1/3),
+    z_i = log(m_i/G_f),       sum_i z_i=0.
+
+This logarithmic decomposition is exact. Before fixing numerical
+determinants, the three G_f are independent sector centers in this
+parameterization. A prescribed relation G_f=K c_f with independently
+fixed c_f is an extra hypothesis. The three sectors in this calculation
+are the established electric-charge sectors, not the nine postulated
+mass fibers of the sixteen-address construction. Unitary flavor basis
+changes preserve the singular values and determinant magnitude. The
+product identity does not assert determinant conservation under general
+physical evolution or equality of masses inside a sector.
+
+In Section 47 the nonnormal B=D+S encodes the addresses and generates
+their matrix algebra. The model assigns bare energies to KD. Reading
+singular values of K B as physical masses would produce a different
+spectrum; a physical mass theory must fix which operator is matched.
+
+======================================================================
+58. ONE CALIBRATION AND A SCALE-FREE CHECK
+======================================================================
+
+CODATA 2022 reports m_e c^2=0.51099895069(16) MeV [A6]. This is a
+usable dimensional anchor. The separate model assumption
+lambda_e=1/4096 gives K_cal=4096 m_e c^2. The algebra of Section 57
+uses no numerical masses.
+
+CODATA independently tabulates the dimensionless comparison observable
+m_mu/m_e=206.7682827(46) [A6]. In the unchanged codebook the bare
+ratio is (1/16)/(1/4096)=256. It exceeds the reference by 23.8101%
+relative to the reference. For all K>0 the scale cancels. Therefore no
+choice of the electron normalization or any replacement common energy
+scale repairs this particular bare mass identification. This is a
+consistency test independent of K. No statistical independence of the
+CODATA adjusted constants or blind selection of the codebook is assumed.
+
+For quarks, the PDG quotes light MSbar masses at 2 GeV, charm and
+bottom MSbar masses at their own running masses, and distinguishes
+direct top determinations from short-distance or pole extractions.
+Comparing a common-scale M_f to those values requires the appropriate
+running and matching. [A2,A5]
+
+The experimentally supported anchors do not select a base-four word,
+a sheet, the seven partners, a gravity interpretation, or a width for
+any new resonance. The sixteen-state result and its integral lattice
+remain exact consequences of the stated model. Physical identification
+requires distinct evidence. The first mass-ratio inconsistency occurs
+already in the charged-lepton sector and remains open for any revised
+dynamics.
+
+======================================================================
+59. REFERENCES FOR THE ANCHOR REGISTER
+======================================================================
+
+[A1] PDG 2026, Electroweak Model and Constraints on New Physics, Sec. 10.1.
+https://pdg.lbl.gov/2026/reviews/rpp2026-rev-standard-model.pdf
+[A2] PDG 2026 lepton and quark summary tables.
+https://pdg.lbl.gov/2026/tables/rpp2026-sum-leptons.pdf
+https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf
+See also CERN, The Standard Model, for the matter and color assignments.
+https://home.cern/science/physics/standard-model/
+[A3] PDG 2026, CKM Quark-Mixing Matrix, Sec. 12.1.
+https://pdg.lbl.gov/2026/reviews/rpp2026-rev-ckm-matrix.pdf
+[A4] PDG 2026, Kinematics, Sec. 49.
+https://pdg.lbl.gov/2026/reviews/rpp2026-rev-kinematics.pdf
+[A5] PDG 2026, Quark Masses, Sec. 60.
+https://pdg.lbl.gov/2026/reviews/rpp2026-rev-quark-masses.pdf
+[A6] NIST, 2022 CODATA adjustment, electron and muon entries.
+https://physics.nist.gov/cuu/pdf/all.pdf
+
+======================================================================
+60. TWO-COORDINATE EQUIVALENCE ON THE MARKED SEEDS
+======================================================================
+
+Let F={charged lepton, up-type, down-type} x {1,2,3}. Only the nine
+charged matter flavors are indexed. The finite flavor register suppresses
+color, spin, chirality, momentum, antiparticles and all other SM sectors.
+Let A be the set of addresses (n,p) with n a positive integer and
+p in {-2,-1,+1}. Write lambda(n,p)=n^p. The seed function i:F->A is
+the inherited declaration of physical names on bare addresses:
+
+    class           generation 1         generation 2         generation 3
+    charged lepton  e:(64,-2)            mu:(4,-2)            tau:(1,-2)
+    up-type         u:(32,-2)            c:(2,-1)             t:(85,+1)
+    down-type       d:(21,-2)            s:(5,-2)             b:(2,+1).
+
+Use n in decimal in this table; its canonical base-four expansion is
+the word w. Define ell(f)=lambda(i(f)). In the same row order the
+three lists of rational values are
+
+    (1/4096,1/16,1),    (1/1024,1/2,85),    (1/441,1/25,2).
+
+All nine are pairwise distinct. Thus ell is a bijection from F onto
+its image Lambda_9, and i is a bijection onto the marked seed set S.
+The inverse on S sends a to ell^{-1}(lambda(a)). The physical naming
+in i is part of the premise. The distinctness and inverse laws follow
+from finite arithmetic on the premise.
+
+The map T:(n,p)->(lambda(n,p),p) is a bijection from A to the
+admissible pairs (lambda,p) satisfying lambda=n^p for a positive
+integer n. The n belonging to a fixed p and lambda is unique by
+strict monotonicity on the positive integers. Equivalently
+n=lambda^(1/p), taking the unique positive root on the admitted set.
+Restricting this map to S or to any complete list of its fibers
+preserves its inverse. This part is independent of flavor names.
+
+======================================================================
+61. EQUIVALENCE AFTER IDENTIFYING THE BARE ENERGY PARTNERS
+======================================================================
+
+Set X=lambda^{-1}(Lambda_9). The scale K>0 is common, so equality of
+bare energy K lambda is equivalent to equality of lambda. Write a~b
+if lambda(a)=lambda(b). Section 46 gives all elements of X. The
+five fibers at e,mu,u,d,s have sheets {-2,-1}. The tau fiber has
+{-2,-1,+1}; c has {-1}, and b,t have {+1}. Hence |X|=16.
+
+The block projection and the marked seed satisfy
+
+    pi(a)=ell^{-1}(lambda(a)),    i:F->X,    pi i=id_F.
+
+For a class [a] in X/~ define h([a])=pi(a) and inverse k(f)=[i(f)].
+The definition is independent of the chosen representative, since
+lambda is constant on each class. We have h(k(f))=f by pi i=id, and
+k(h([a]))=[a] because lambda(i(pi(a)))=lambda(a). Consequently
+
+    F ~= S ~= X/~ ~= Lambda_9.                              (61.1)
+
+On X itself i pi is an idempotent that selects the marked seed of
+each fiber. Its fixed points are exactly S. For example
+
+    (64,-2) and (4096,-1) -> e,     i(e)=(64,-2).
+
+Keeping all sixteen states gives the finer equivalence
+
+    X ~= disjoint union_{f in F} {f} x P_f,                  (61.2)
+
+where P_f is the allowed sheet set for f. The forward map is
+a -> (pi(a),p(a)); the inverse is (f,p)->(ell(f)^(1/p),p).
+This is a dependent pair because the number of allowed p's varies
+with f. The quotient remembers the flavor block and forgets exactly
+that sheet distinction.
+The equivalence relation uses the unsplit bare energies. If a later
+Hamiltonian splits partners, this partition can still serve as a
+reference label but requires a new test against its actual spectrum.
+
+======================================================================
+62. WHICH OBSERVABLES PASS THROUGH THE EQUIVALENCE
+======================================================================
+
+For any value set Y, an address observable O:X->Y has a unique flavor
+description o:F->Y with O=o composed with pi iff O is constant on
+each ~-class. Necessity follows from pi(a)=pi(b). For sufficiency
+take o(f)=O(i(f)); then a~i(pi(a)) gives O(a)=o(pi(a)). Uniqueness
+follows by restriction to the marked seeds.
+
+For fixed observables on BOTH sides the equivalent checks are
+  (a) O=o composed with pi,
+  (b) O is fiber-constant and O(i(f))=o(f) on every seed.
+Copying established seed charges gives Q_X=Q_F composed with pi
+as a charge assignment on all partners. Its meaning on the seven
+additional addresses remains conditional. The sheet P itself fails
+the constancy check on every doublet and on the triplet.
+
+For complex scalar functions the pullback is the explicit unital
+*-algebra isomorphism
+
+    C^F -> center(A_16),     o -> direct_sum_f o(f) I_{d_f}.
+
+Each full matrix block has scalar center, so this formula is onto
+the center. Its inverse reads one entry per block. The ordinary trace
+on the sixteen-coordinate space weights o(f) by d_f, while summing
+once over F weights each flavor by one.
+
+======================================================================
+63. EXACT CRITERION FOR EQUIVALENCE OF ADDITIVE CONSERVATION LAWS
+======================================================================
+
+For reactions involving these labels let Z[X] and Z[F] be the free
+abelian groups on their basis labels. Extend the projection linearly,
+pi_*:Z[X]->Z[F], summing signed multiplicities in each fiber. Extend
+i linearly as a section. Then
+
+    ker(pi_*) = direct_sum_f {v in Z^{d_f}: sum v=0}
+              = A_1^5 orthogonal_sum A_2.
+
+The last statement uses the marked coordinate dot product. Indeed
+pi_*v=0 iff every separate fiber sum vanishes; subtracting its marked
+seed from each nonseed basis state gives an integral basis of this
+kernel. These are the seven partner-difference directions in the
+mass lattice. Its common-scale direction is absent from this kernel.
+
+Let R be the subgroup generated by signed reaction vectors, with
+antiparticles contributing opposite signs when that convention is
+appropriate. The full and projected universal additive charge groups
+are Z[X]/R and Z[F]/pi_*R. The induced map is onto with kernel
+(ker(pi_*)+R)/R: if pi_*v=pi_*r, then v-r belongs to ker(pi_*).
+Thus it is an isomorphism precisely when
+
+    ker(pi_*) is contained in R.                            (63.1)
+
+Equivalently every flavor fiber can then be collapsed without losing
+any additive charge law across arbitrary abelian targets. For one
+prescribed law, constancy on each fiber suffices even if (63.1) is
+unproved. If other species such as W or neutrinos participate, add
+their labels on both sides and extend pi by the identity before
+forming the reaction vectors. Actual unmediated partner transitions
+would impose difference relations. Their dynamical existence, or
+that of a collection generating the same relations, remains open.
+
+======================================================================
+64. MASS MATCHING AND LIMIT OF THE OPERATOR CORRESPONDENCE
+======================================================================
+
+Use c=1 or rest energies in consistent units, with quark scheme/scale
+matching when needed. Let epsilon_f>0 be reference energies for a
+given parameter choice. The lattice prediction is K ell(f). Exactly
+one common K>0 matches all nine iff
+
+    for every f, epsilon_f/epsilon_e = ell(f)/ell(e).        (64.1)
+
+Divide by the electron equation for necessity. For sufficiency take
+K=epsilon_e/ell(e); the electron equation also gives uniqueness. Thus
+the bare codebook specifies one ray in the positive nine-energy space.
+Standard Model mass parameters may be chosen on that ray for a
+mathematical comparison. Matching observed masses is a separate test:
+ell(mu)/ell(e)=256, versus the CODATA ratio 206.7682827(46) [A6].
+Already this pair obstructs empirical mass preservation in the
+unmodified assignment. No coupling or center was refitted here.
+
+There is a separate multiplicity obstruction to lifting ALL
+electric-charge-neutral flavor matrices of Section 57 to operators
+on X while mapping each flavor projection to its ENTIRE fiber
+projection R_f. Within the charged-lepton sector let V=|tau><e|.
+In M_3, V*V is the electron projection and VV* is the tau projection.
+Any *-homomorphism with the prescribed diagonal images would send V
+to a matrix W with W*W=R_e and WW*=R_tau. Finite matrices satisfy
+rank(W*W)=rank(WW*), whereas rank(R_e)=2 and rank(R_tau)=3.
+This contradiction already occurs with the whole M_16(C) as target.
+It concerns an attempted lift of the full neutral matrix algebra;
+V is an algebraic test element, not a proposed weak vertex. A transport
+between the nine conventional basis vectors and the nine chosen
+representatives remains possible. Agreement with furnished dynamics
+requires additional intertwining conditions on the actual operators.
+
+======================================================================
+65. ENDPOINT STATUS
+======================================================================
+
+PL-38 Marked seed and admissible coordinate equivalences       B_TIER
+PL-39 Sixteen-state quotient and flavor-by-sheet bijection     B_TIER
+PL-40 Fiber descent of observables and center isomorphism      B_TIER
+PL-41 Partner-difference kernel and reaction quotient test     B_TIER
+PL-42 Common-scale iff and full-fiber operator obstruction    B_TIER
+
+Equations (61.1)-(61.2) are the finite representation equivalences.
+Their assumptions include the stated codebook and bare energy law.
+Full physical equivalence to the Standard Model is blocked at mass
+matching. Extending the standard interactions to the additional
+states also needs their field representations and dynamics. These
+are mathematical B-tier derivations without Lean execution.
+
+======================================================================
+66. MEASUREMENT INPUTS AND EFFECTIVE ANCHOR CHOICE
+======================================================================
+
+Treat a published numerical record as external data. A separate premise
+states its statistical interpretation. Any formal result can quantify
+over these records and premises. The measured central value is neither
+an exact law of nature nor a theorem that the model is correct.
+
+Record the observable, units, mass scheme and scale where relevant,
+source/version, central estimate and its meaning, uncertainty convention,
+statistical/systematic components if available, dependence on shared
+calibrations, and role (scale anchor, held-out test, or exploratory use).
+Keep limits, likelihoods, standard uncertainties, confidence intervals
+and credible intervals as distinct input types. Record both widths for
+an asymmetric result, including their coverage or likelihood convention.
+Store the joint covariance, nuisance model, or joint likelihood where
+supplied. Mark unknown correlations explicitly.
+
+Choose a physically well-matched observable before inspecting agreement.
+For the one-parameter model y_i=K lambda_i+noise_i with fixed lambda_i
+and unbiased estimates of known variance, K_i=y_i/lambda_i has
+standard uncertainty sigma_i/|lambda_i|. Among otherwise suitable
+single anchors prefer the smaller scale uncertainty. K requires only
+one nonzero lambda. Additional fitted parameters require sufficiently
+many independent observables to identify them. For a jointly Gaussian
+calibration subset A with fixed positive definite covariance C_A, its
+information about K is lambda_A^T C_A^{-1} lambda_A; this accounts for
+correlations between proposed anchors. Preserve independent information
+for testing. For the current model retain the electron as the sole
+scale anchor and the muon/electron ratio as the first scale-free check.
+Do not count a derived ratio and its source masses as independent tests.
+Historical use of a datum to select the codebook makes that comparison
+retrospective even if the datum was excluded from the scale fit.
+
+======================================================================
+67. A BASIS-INDEPENDENT STATISTIC FOR THE MASS OPERATOR
+======================================================================
+
+Fix the flavor projectors R_f, dimensions d_f=Tr(R_f), and the
+observation map before scoring data. On the central bare mass model
+H(K)=K sum_f lambda_f R_f, use natural units and define
+
+    m_f(H) = Tr(R_f H)/d_f = K lambda_f.
+
+Under simultaneous unitary conjugation of H and R_f the trace is
+unchanged. This statistic measures a mean over a mass fiber. For
+an experimentally resolved individual mass use its matched spectral
+projection or eigenvalue. A split fiber requires an explicit choice
+of which physical observable is compared.
+
+Given a test set T and anchor e, define r_j=lambda_j/lambda_e.
+For y the vector of measurements in common units, let L have one row
+per test with (Ly)_j=y_j-r_j y_e. Then L lambda=0. Under the null
+E[y]=K lambda and joint covariance C one obtains exactly
+
+    z=Ly,    E[z]=0,    V=Cov(z)=L C L^T.
+
+Proof: apply linearity of expectation and expand the centered outer
+product. This includes anchor uncertainty and shared correlations.
+For the first two-mass contrast z=y_mu-256 y_e its variance is
+C_mumu + 256^2 C_ee - 512 C_mue. A separately published ratio can
+instead be compared directly to 256 using its own quoted uncertainty.
+
+If the joint errors are Gaussian with known C, diagonalize V on its
+positive-eigenvalue subspace. After whitening, the coordinates are
+independent standard normals. Hence
+
+    T=z^T V^+ z,      T ~ chi-square(rank(V)).
+
+Here V^+ is the Moore-Penrose inverse. A residual in an exact null
+direction with nonzero component violates the null support and must be
+reported separately from T. The contrast has already eliminated K.
+For one contrast of positive variance this gives the two-sided normal
+test from Z=z/sqrt(V). These reference distributions require the stated
+sampling assumptions. Systematics or theory errors require a specified
+nuisance model or explicit bounds. Estimated covariances, scan choices,
+and nonlinear fits may require a different calibration.
+
+======================================================================
+68. ASYMMETRIC INPUTS, SIGNIFICANCE AND REPLAY OUTPUT
+======================================================================
+
+Use the following control flow.
+
+1. Require an observable match, admissible units, reference metadata,
+   uncertainty meaning and declared calibration/test roles.
+2. With an adequate joint Gaussian model, run the linear contrast
+   test of Section 67. Record test statistic, rank and calibrated
+   tail probability. A reported standard uncertainty alone justifies
+   quoting a residual in its units; Gaussian tails require more.
+3. With a published likelihood, evaluate a specified likelihood ratio
+   with common nuisance parameters handled consistently. Obtain its
+   reference law under the null from applicable theory or a simulation
+   that reproduces the sampling design and fitting/search procedure.
+4. With only asymmetric limits y[-u_-,+u_+], retain the endpoints and
+   their stated interpretation. Report interval membership for a
+   fixed prediction. If desired report signed descriptive distance,
+   dividing prediction-y by u_+ above y and by u_- below y, for
+   positive finite widths. Leave a p-value unavailable if the input
+   lacks a calibrated test or sampling model. In particular a pair
+   of one-sided widths alone does not specify a skewed distribution.
+   If dependence data are missing, abstain from a combined p-value
+   or report a justified sensitivity range.
+5. Separate disagreement from evidence of precision agreement. For
+   a claim of agreement within tolerance, set a physically justified
+   margin delta before comparison and apply a calibrated equivalence
+   test (or a confidence set for the discrepancy wholly inside the
+   margin with its stated coverage). For a discovery/chance-match
+   claim specify the competing background model. Any mass-window,
+   address or resonance search must enter the global calibration.
+
+The planned report exposes input IDs, model/version, projector and
+prediction, anchor role, residual and propagated uncertainty, test rule,
+statistic, reference law, and verdict. It should be able to reproduce
+the electron/muon contrast, handle covariance, and return an interval
+comparison for an asymmetric interval-only record. For the existing
+ratio the correction that would be needed is 256-206.7682827=49.2317173
+in the direction of lowering the modeled ratio. No extreme-tail
+significance or probability of model truth is assigned from that
+central discrepancy alone.
+
+======================================================================
+69. ENDPOINTS AND SOURCES
+======================================================================
+
+PL-43 Fixed-projector mass readout and scale-free covariance formula:
+exact B-tier conditional mathematics. The chi-square null law is
+conditional on known covariance and a valid Gaussian sampling model.
+Software, statistical validation and a Lean checker for the statistical
+interface are proposed work. No local formal verification was performed.
+
+PDG 2026, Statistics, Sec. 40 (hypothesis testing, nuisance parameters,
+intervals and the look-elsewhere effect).
+https://pdg.lbl.gov/2026/reviews/rpp2026-rev-statistics.pdf
+R. Barlow, A. R. Brazzale and I. Volobouev, Asymmetric Errors.
+https://arxiv.org/abs/2411.15499
+NIST 2022 CODATA adjustment for the electron anchor and mass ratio [A6].
+
+======================================================================
+70. ONE EMPIRICAL AXIOM PER DISTINCT PUBLISHED RESULT
+======================================================================
+
+Give each published experimental result admitted to the project a stable
+ID for its observable, originating analysis or adjustment, and edition.
+The axiom asserts that the identified source reports the central value
+and uncertainty described by the record. Keep units, observable definition,
+uncertainty type and coverage when given, and links to shared covariance
+or nuisance inputs. Label adjusted values as such. Preserve asymmetric
+uncertainties in their reported form. An algebraic consequence carries
+its parent IDs and formula. Reprints, translations of units and GitHub
+copies all resolve to the same empirical ID. Distinct IDs may still
+share data or systematic uncertainty.
+
+For a test, declare its required input IDs and the role of each. Resolve
+them first from available source-traceable GitHub records. Pin the file
+and revision, keep the primary citation, and use the literature for
+missing fields or provenance. Return the actual input IDs with each
+result. If a test requires a joint uncertainty model, resolve that
+dependency too. The rules of sections 67-68 determine which score the
+available information supports.
+
+Worked lookup. For the frozen prediction lambda_mu/lambda_e=256, the
+direct-ratio comparison requires one empirical ID:
+
+    CODATA2022.muon_electron_mass_ratio
+    quantity = m_mu/m_e          units = 1
+    value = 206.7682827          standard uncertainty = 0.0000046
+    kind = adjusted value        role = comparison
+
+The primary record is the muon-electron mass ratio in [A6]. The SciPy
+1.15.2 CODATA 2022 table contains the same value and uncertainty:
+https://github.com/scipy/scipy/blob/0f1fd4a7268b813fa2b844ca6038e4dfdf90084a/scipy/constants/_codata.py#L1833
+The electron scale is unnecessary for this comparison. The project's
+own PARTICLE_PREDICTIONS repository was empty when checked on 2026-11-18.
+
+PL-44. Measurement identity and dependency resolution are specified.
+The row above verifies one GitHub lookup. Automated retrieval is pending.
+
+End of version 0.12.
+
+
+
+======================================================================
+71. SPATIAL ENERGY DENSITY ON THE RISING BARE SHEET
+======================================================================
+
+Let E(n,p) = E_* n^p be the bare rest-energy assignment of section 6.
+For increasing n, the p=+1 sheet rises without bound. Fix one occupied
+state per assigned physical cell and write V(n,p)>0 for its volume.
+The mean rest-energy density assigned to that cell is u(n,p)=E(n,p)/V(n,p).
+On the rising sheet this gives the exact comparison
+
+    u(m,+1)/u(n,+1) = (m/n) V(n,+1)/V(m,+1).               (71.1)
+
+An energy spectrum alone leaves this ratio undetermined. For example,
+a common fixed volume gives linear growth. More generally, any positive
+density sequence b_n is compatible with the same rising energies by
+setting V(n,+1)=E_* n/b_n.
+
+PL-45 (conditional reduced-Compton-cell estimate).
+Assign the length ell(E)=hbar c/E to a state of rest energy E and set
+V(E)=kappa ell(E)^3 with one fixed dimensionless shape factor kappa>0.
+Taking ell as the side of a cube gives kappa=1. Direct substitution yields
+
+    u(E) = E^4 / [kappa (hbar c)^3],
+    u(n,p) = u_* n^(4p),   u_* = E_*^4/[kappa (hbar c)^3].  (71.2)
+
+On the rising sheet, n -> 2n gives 16 times the density. For the radix-4
+word operation that appends a zero, n -> 4n gives 256 times the density.
+For consecutive levels, the ratio is (1+1/n)^4 and tends to one.
+On the inverse sheets the corresponding powers of n are -4 and -8.
+
+With kappa=1 and the electron calibration E_*=K_e from (14.2),
+
+    ell(n,+1) = 0.09428/n fm,
+    u(n,+1)   = 2.498e3 n^4 GeV/fm^3
+              = 4.002e38 n^4 J/m^3.                        (71.3)
+
+Sources for units and normalization inputs:
+https://physics.nist.gov/cgi-bin/cuu/Value?hbcmevf
+https://physics.nist.gov/cgi-bin/cuu/Value?mec2mev
+One GeV is 1.602176634e-10 J and one fm is 1e-15 m.
+
+Endpoint. Equation (71.1) is exact for the stated assigned volume.
+Equation (71.2) follows under the additional Compton-volume assumption.
+An intrinsic spatial energy-density prediction requires independent
+information on the physical size and energy distribution of the state.
+The bare lattice provides neither a size observable nor a spatial
+stress-energy profile. The cubic estimate is a resolution convention.
+
+End of version 0.13.
+
+======================================================================
+72. COMPUTABLE STATISTICAL WITNESS FOR A FAMILY OF SEEDS
+======================================================================
+
+Extend the proposed trace_sound interface with an explicit empirical
+context A, fixed model M, seed family F and test rule. Resolve every
+leaf by the measurement ID in section 70. Store each reported central
+value once, with units, error form and provenance. Supply a joint error
+model if the requested score needs one. Include any cross-covariance
+between inputs used in calibration and in comparison. In Lean the
+empirical claims and sampling assumptions can be local hypotheses of
+the endpoint. The executable data can use exact rationals for the
+reported decimal inputs. The soundness theorem is a separate obligation.
+
+For the one-scale mass operator the trace readouts give E[Y]=K lambda
+under the model, with the assignments and measurement definitions fixed.
+For a seed predicting j from i, take row l=e_j^T-(lambda_j/lambda_i)e_i^T
+with lambda_i nonzero. More generally use any fixed rows with L lambda=0.
+Stack the rows for F and propagate the residual mean and covariance:
+
+    observed z = L y,     null mean = 0,      V = L C L^T .
+
+PL-46. Fix F in advance, or draw F independently of the measurement
+vector and condition on the realized family. Suppose Y is jointly
+Gaussian under the null with known positive semidefinite C. For
+nu=rank(V)>0 the family score and its reduced value satisfy
+
+    Q = z^T V^+ z,        Q ~ chi-square(nu),
+    E[Q/nu | F] = 1,      Var[Q/nu | F] = 2/nu.
+
+Proof. In an orthonormal eigenbasis of V only nu directions have
+positive variance. Dividing their centered coordinates by their
+standard deviations gives independent standard normal coordinates.
+Q sums their squares. All other coordinates are zero almost surely
+under the stated model. Duplicating contrasts changes neither Q nor
+nu. For positive definite C, rank(V)=rank(L). For n positive bare
+coefficients the n-1 rows comparing one anchor to every other state
+are independent by their target entries and span the annihilator of
+lambda. Every pairwise row lies in this span. Adding dependent rows
+preserves Q: either row basis recovers the same whitened projection
+onto row(L C^(1/2)). In particular all 36 unordered pairs of the nine
+marked masses yield eight degrees of freedom for this one-scale test
+when C is positive definite. This is a conditional count.
+
+Proposed executable certificate. Supply a row-reduction certificate of
+nu and a solution w to Vw=z. Verify those identities over the rationals
+and return Q=z^T w. Every solution differs by a vector in ker V,
+orthogonal to z in im V, giving exactly the score above. Verify symmetry
+and positive semidefiniteness of the input covariance or expose them
+as checked premises. A witness Vh=0 with h^T z nonzero certifies a
+violation of exact null support. If nu=0 and z=0, the contrasts have
+no stochastic degrees of freedom. Both cases have explicit outcomes.
+
+Small rational witness (dimensionless illustrative input). Take
+lambda=(1,2,4), y=(3,5,13), C=I and the three pairwise comparisons.
+Then L has rows (-2,1,0), (-4,0,1), (0,-2,1). The third row is the
+second minus twice the first. Thus z=(-1,1,3) and V has rows (5,8,-2),
+(8,17,1), (-2,1,5). Its leading 2-by-2 minor has determinant 21.
+The witness w=(-25,13,0)/21 gives Vw=z. The exact output is nu=2,
+Q=38/21 and Q/nu=19/21. This example uses no experimental values.
+
+Decision. Predeclare alpha and reject for Q above the (1-alpha) null
+quantile. Otherwise retain the model at this test level. A separate
+equivalence margin is needed for a claim of accuracy within tolerance.
+If implementing a quantile by rational bounds, verify the bounds and
+report indeterminate whenever the comparison cannot yet be decided.
+An invalid computational certificate is a checker failure, distinct
+from a statistical rejection. A complete report carries input IDs,
+model, realized seed family and its selection rule, z, V, Q, nu,
+reduced score when defined, threshold provenance and verdict.
+
+For seed selection driven by observed fit, calibrate the full search
+under the null. For a nonlinear chain propagate the joint law through
+the chain or use an explicitly justified approximation. Asymmetric
+intervals alone retain the interval-only outcome of section 68.
+The statistical interpretation depends on its declared sampling law.
+
+Endpoint. PL-46 and the finite certificate identities are B-tier.
+An executable Lean checker, its soundness theorem and external cached
+verification remain open. See the particle16 endpoints 15-16 for the
+trace interface and PDG Statistics, sec. 40.3.3.1, for goodness of fit.
+
+End of version 0.14.
+
+
+======================================================================
+73. HIGH MASS ADDRESSES, SLOW DESCENT AND OBSERVATIONAL COMPARISON
+======================================================================
+
+PL-47 (conditional macroscopic descent law).
+Set x=Mc^2/E_* for a black hole of mass M. The continuous x agrees
+with the bare rising-sheet label at E=n E_*. For this comparison assume
+an isolated, uncharged, nonrotating, semiclassical black hole, evolving
+quasistatically with fixed effectively massless emission channels.
+For a general object of this mass the lattice alone supplies no horizon.
+
+Hawking's temperature and the Schwarzschild area give
+    k_B T_H = E_P^2/(8 pi E_* x),         E_P^2 = hbar c^5/G,
+    A_H = 16 pi G^2 E_*^2 x^2/c^8.
+The massless Hawking flux scales as A_H T_H^4, including a dimensionless
+coefficient for species and frequency-dependent transmission through
+the exterior gravitational field after frequency integration. Thus
+P_H=P_0 x^(-2) for a positive normalization P_0 (units of power).
+By energy balance E_* dx/dt=-P_H. With gamma=P_0/E_* and x(0)=x_0,
+
+    x(t)^3=x_0^3-3 gamma t,
+    x(t)/x_0=1-gamma t/x_0^3+O((gamma t/x_0^3)^2).
+
+The expansion applies for gamma t/x_0^3 small, including the high-x_0
+limit at fixed t. The absolute speed scales as x^(-2), the fractional
+speed as x^(-3). The equality applies within the fixed-channel model.
+Ambient absorption or accretion contributes incoming power to the
+balance. A shadow image measures geometry and gives no net mass-loss
+rate. The three x-dependences (energy, thermal energy, emitted power)
+have exponents (+1,-1,-2) as in section 6. Each readout requires its
+own physical normalization. For example at integer x=n,
+
+    (k_B T_H)/E(n,-1)=E_P^2/(8 pi E_*^2) approximately 1.35e36
+
+with the electron calibration of section 14. Power carries different
+units from the energies of the sheets. The exponent agreement alone
+cannot supply a transition law or fix gamma.
+
+PL-48 (shadow diameter at a given address).
+For a distant observer at distance D, the Schwarzschild capture impact
+parameter is 3 sqrt(3) GM/c^2. Its angular diameter in radians is
+
+    d_sh=6 sqrt(3) GM/(c^2 D)=6 sqrt(3) G E_* x/(c^4 D).
+
+An angular gravitational radius theta_g=GM/(c^2 D) from stellar orbits
+therefore predicts a shadow diameter independently of the EHT image.
+M and D from a single orbital fit are correlated. Use the reported
+theta_g directly. The electron calibration cancels from the test.
+
+Sagittarius A*, empirical inputs from EHT Paper I, Table 1, and Paper VI:
+* VLTI orbital angular radius 5.125 +/- 0.009 (stat) +/- 0.020 (sys)
+  microarcseconds. Predict 53.26 microarcseconds.
+* EHT inferred shadow diameter 48.7 +/- 7.0 microarcseconds, from
+  imaging and ring-to-shadow calibration. The measured emission-ring
+  diameter is a separate observable, 51.8 +/- 2.3 microarcseconds.
+* EHT's published fractional deviation from Schwarzschild with VLTI
+  prior is -0.08 +/- 0.09. This shares the EHT and VLTI inputs; use
+  the published comparison as a single result.
+
+Taking the VLTI mass 4.297e6 solar masses, x approximately 2.29e63.
+At fixed D one bare integer step would change d_sh by d_sh/x, about
+2.33e-62 microarcseconds. The agreement tests the external geometry.
+Measuring this diameter cannot distinguish a bare energy step at that
+scale. The inferred x is a mass conversion, not a predicted integer.
+
+Conditional finer-level test. If the Schwarzschild horizon area takes
+values A_j=alpha l_P^2 j, with alpha>0 fixed, l_P^2=hbar G/c^3, then
+
+    E_j = E_P sqrt(alpha j/(16 pi)),
+    E_j-E_(j-1) = alpha E_P^2/[16 pi (E_j+E_(j-1))],
+    (E_j-E_(j-1))/(k_B T_H(E_j)) -> alpha/4  as j -> infinity.
+
+This limit follows by rationalizing the difference of square roots.
+The additional area index j differs from the bare mass index n.
+Laghi et al. (2021) used LIGO-Virgo merger ringdowns to compare a
+phenomenological area-quantized waveform with a GR ringdown waveform.
+For their combined sample through 2019-10-01 the reported log odds
+ratio was 0.1 +/- 0.6, giving no preference in that analysis. The
+connection from an area gap to a rotating merger waveform requires
+further modeling. The data do not calibrate alpha for this lattice.
+
+First open physical edge. The bare operator supplies neither a
+microscopic transition law nor a horizon-area spectrum. A
+lattice-specific observational test would require transition energies
+and a coupling to a measurable signal derived independently of the
+comparison data. Neither agreement of exponents nor the shadow
+comparison establishes microscopic identification.
+
+Sources
+Hawking, Black hole explosions? (1974), and Page, Particle emission
+rates from a black hole (1976), supply the semiclassical physics.
+https://doi.org/10.1038/248030a0
+https://doi.org/10.1103/PhysRevD.13.198
+EHT Collaboration, First Sagittarius A* Event Horizon Telescope Results,
+I (Table 1) and VI (Eq. 1 and shadow calibration).
+https://doi.org/10.3847/2041-8213/ac6674
+https://eventhorizontelescope.org/publications/first-sagittarius-event-horizon-telescope-results-vi-testing-black-hole-metric
+Bekenstein and Mukhanov, Spectroscopy of the quantum black hole.
+https://arxiv.org/abs/gr-qc/9505012
+Laghi et al., Quantum black hole spectroscopy (2021).
+https://arxiv.org/abs/2011.03816
+
+End of version 0.15.
+
+
+======================================================================
+74. ONE MASS UNIT, EXACT HORIZON ADDRESSES AND POSSIBLE LINE SCALES
+======================================================================
+
+PL-49 (time to lose one coarse mass unit).
+Under PL-47 with constant gamma, integrate from x to x-1 for x>1:
+
+    t_1(x) = [3x^2-3x+1]/(3 gamma)
+           = [E_*/P_H(x)] [1-1/x+1/(3x^2)].
+
+For a numerical benchmark take the Schwarzschild horizon area radiating
+as an ideal photon blackbody into empty space. This particular power is
+P_bb=hbar c^6/[15360 pi (GM)^2]. Absorption, accretion, spin, other
+species and the frequency dependence of transmission change the physical
+balance. At M=4.297e6 solar masses and E_*=2.093051702 GeV,
+
+    x about 2.29e63;   P_bb about 4.88e-42 W;
+    t_1 about 2.18e24 years.
+
+This is a vacuum benchmark at the mass of Sagittarius A*. It integrates
+the outgoing power to an energy of one bare unit. The inverse frequency
+of a single emitted quantum and the waiting time between emissions are
+different observables.
+
+PL-50 (exact condition on a set of occupied mass addresses).
+Take the Schwarzschild area-energy relation A/l_P^2=16 pi (E/E_P)^2,
+the uniform spectrum A_j=alpha l_P^2 j with j a positive integer,
+and unchanged bare energies E_n=E_* n. For a nonempty set S of
+positive integer addresses let g=gcd(S). Define
+
+    alpha_0=16 pi (E_*/E_P)^2,    C=alpha_0/alpha.
+
+There is an exact inclusion of all energies indexed by S in the area
+spectrum if and only if
+
+    C g^2 is a positive integer,
+    equivalently alpha=alpha_0 g^2/m, m in {1,2,...}.
+
+Proof. Inclusion requires j_n=C n^2 integral for every n in S. A single
+such n forces C to be rational. The reduced denominator of C must
+divide every n^2 and therefore gcd({n^2 : n in S})=g^2. Conversely
+C=m/g^2 makes every j_n=m(n/g)^2 integral. This also covers infinite
+S because its gcd is attained as the gcd of a finite subset. QED.
+
+Two consecutive addresses anywhere in S force g=1. At the measured
+electron calibration and E_P about 1.22089e19 GeV, alpha_0 is about
+1.47733e-36. Thus alpha is at most alpha_0 for such sets, even if the
+two addresses are far up the rising sheet. This bound concerns exact
+coincidences with a common, zero-offset, uniformly spaced area spectrum.
+For example, alpha around 5.545 would require g at least about 1.94e18
+for exact inclusion (necessary scale, with integrality still required).
+Widely separated addresses can still have gcd one.
+
+For g=1 and j_n=m n^2, rationalizing the downward adjacent-area gap gives
+
+    Delta E = E_*/[m (n+sqrt(n^2-1/m))]
+            ~ E_*/(2mn).
+
+Thus the inverse sheet supplies the leading shape of the subgap. Using
+the Sagittarius A* mass scale above gives the largest leading gap, at
+m=1, of 4.57e-55 eV or 1.11e-40 Hz. As n grows, the largest limiting
+ratio of this adjacent gap to k_B T_H is alpha_0/4, about 3.69e-37.
+A transition involving many area steps can have a larger energy.
+Its probability requires additional dynamics.
+
+Alternative coarse mass-coordinate hypothesis. Allow a black hole to
+have energy close to E_* n and use j=round(C n^2) for large n. Writing
+j=C n^2+eps, |eps|<=1/2, and taking square roots gives a maximum
+leading mismatch of one-half of the local adjacent-area gap. This
+option admits order-one alpha without requiring exact coincidences.
+
+For an illustrative additional hypothesis, suppose the number D_j
+of equiprobable physical horizon microstates satisfies
+log(D_j)/j -> log(4). Combining S/k_B=log D_j with the leading
+Bekenstein-Hawking entropy A_j/(4l_P^2) gives alpha=4 log(4)=5.54518.
+This is the k=4 member of the Bekenstein-Mukhanov counting family.
+Four digit choices in the bare word register label different addresses.
+Counting physical states at a fixed horizon area requires separate input.
+
+In the Schwarzschild approximation the corresponding large-j adjacent
+transition energy is log(4) k_B T_H. Its frequency in cycles per second,
+referred to infinity in the source frame, is
+
+    f_1 = Delta E/h ~ log(4) c^3/[16 pi^2 GM].
+
+At 4.297e6 solar masses this gives 1.72e-18 eV, 0.415 mHz, or a
+wave period of 40.2 min. At 60 solar masses it gives 29.7 Hz. These
+are conditional frequencies. Spin, the change in angular momentum,
+the coupling, occupation and broadening are needed for a spectral test.
+In the fourfold model the rounding mismatch at the Sagittarius A*
+mass scale is at most about 8.6e-19 eV to leading order.
+
+Observation. GRAVITY's 2018 study found a roughly 45 +/- 15 minute
+modulation in the sky position and polarization of infrared flares,
+with resolved motion consistent with orbiting plasma. The modulation
+is measured in the time series of infrared light. The computed f_1
+is the frequency of a possible emitted or absorbed quantum. A direct
+statistical comparison between those two different observables would
+require an emission and modulation mechanism. No significance score
+follows from overlap of the time scales.
+
+First open physical edge. The bare mass spectrum specifies neither the
+set S realized as black holes nor horizon microstates and transition
+probabilities. A unique alpha, a line strength and an observed rate of
+descent remain undetermined. PL-49 and PL-50 are conditional B-tier
+results. The general mass scale, assumed physics and measured inputs
+enter before comparison with any flare timing.
+
+Numerical and physical sources (electron calibration in section 14)
+CODATA Planck energy, fundamental constants and units:
+https://physics.nist.gov/cuu/pdf/JPCRD2018CODATA.pdf
+Sgr A* mass adopted from stellar orbits, EHT I, Table 1:
+https://doi.org/10.3847/2041-8213/ac6674
+Horizon blackbody power used for the stated numerical benchmark:
+https://academic.oup.com/mnras/article/506/2/1723/6312510
+Uniform area and state counting, Bekenstein and Mukhanov:
+https://arxiv.org/abs/gr-qc/9505012
+Infrared astrometry and polarimetry, GRAVITY collaboration (2018):
+https://doi.org/10.1051/0004-6361/201834294
+
+End of version 0.16.
+
+======================================================================
+75. ORDINARY STANDARD MODEL AND ITS MAP TO CHARGED-FERMION MASSES
+======================================================================
+
+Convention. Use the minimal renormalizable Standard Model in flat
+spacetime, with one Higgs doublet and three matter generations.
+Use natural units and Q_em=T3+Y. The local gauge algebra is
+su(3)_c + su(2)_L + u(1)_Y. It gives eight gluon fields, three weak
+gauge fields and one hypercharge field. The following are the color
+and weak representations and hypercharges in a right-handed singlet
+convention. Each matter row occurs once per generation.
+
+    field       (SU(3), SU(2), Y)
+    Q_L          (3, 2,  1/6)
+    u_R          (3, 1,  2/3)
+    d_R          (3, 1, -1/3)
+    L_L          (1, 2, -1/2)
+    e_R          (1, 1, -1)
+    H            (1, 2,  1/2)  one scalar doublet in total
+
+The renormalizable Lagrangian has gauge and matter kinetic terms,
+the covariant Higgs kinetic term, the quadratic and quartic Higgs
+potential, three charged-sector Yukawa interactions, and the allowed
+strong CP term. The conventional generic parameter count is 19:
+3 gauge couplings, 2 Higgs potential parameters, 9 Yukawa singular
+values, 4 CKM parameters and 1 physical strong CP angle. With this
+field content and renormalizability the three neutrinos are massless.
+Accounting for observed neutrino oscillations requires a mass extension.
+
+PL-51. Charged mass projection. Use the flavor order of sections
+57 and 60, and choose compatible mass definitions. At tree level
+write H=(0,(v+h)/sqrt(2))^T in unitary gauge, with v>0. Substitution
+in the Yukawa interactions gives mass matrices M_a=(v/sqrt(2))Y_a
+for a=e,u,d. Write s_i(Y_a) for singular values labeled by the
+corresponding mass eigenstates. Biunitary diagonalization gives
+
+    m_ai = v s_i(Y_a)/sqrt(2)
+      iff   s_i(Y_a) = sqrt(2) m_ai/v.                       (75.1)
+
+Given any nine positive labeled masses and fixed v, diagonal Yukawa
+matrices with entries sqrt(2)m_ai/v realize them. Changing a relative
+left-handed quark rotation preserves these masses while changing CKM.
+Thus (75.1) is invertible on the nine singular values for fixed v.
+Lifting masses back to a complete SM parameter point has many solutions.
+The same expansion yields the coefficient of -h fbar f in the mass
+basis, g_hff=m_f/v. With m_f and v fixed, a separately measured Higgs
+rate can test this coupling after the rate and its corrections are
+modeled. Comparing precise pole or running mass extractions requires
+scheme, scale, radiative corrections and matching as appropriate.
+
+PL-52. On these nine mass observables the minimal SM spans the positive
+orthant. The fixed bare lattice gives the ray m=K ell, K>0, for the
+nine declared coefficients ell. The orthant contains this ray strictly.
+For positive masses membership is equivalent to the eight equations
+m_j-(ell_j/ell_e)m_e=0 for j other than e. Each row has its own
+target coordinate, proving independence. Thus fitting the nine masses
+with nine unconstrained SM mass parameters leaves zero residual degrees
+of freedom for that fit. With comparable observations and positive
+definite joint covariance the lattice contrasts have rank eight, as
+in section 72. No numerical fit or new empirical input enters this
+identification. In particular m_mu/m_e=256 is a restriction of the
+frozen lattice assignment. An electron anchor alone leaves the SM
+muon Yukawa free.
+
+The sixteen model addresses enter through the quotient of section 61.
+The present comparison identifies nine marked flavor labels and mass
+observables. Reconstructing SM gauge representations, currents and
+mixing from these masses alone is obstructed by the nonuniqueness
+above. PL-51 and PL-52 are B-tier mass-sector identifications.
+
+References. PDG, Grand Unified Theories, sec. 92.1 (uses twice our Y
+and charge-conjugate left-handed singlets)
+https://pdg.lbl.gov/2025/reviews/rpp2025-rev-guts.pdf
+PDG, Electroweak Model and Constraints on New Physics, sec. 10.1
+https://pdg.lbl.gov/2026/reviews/rpp2026-rev-standard-model.pdf
+PDG, CKM Quark-Mixing Matrix, eqs. 12.1-12.2
+https://pdg.lbl.gov/2026/reviews/rpp2026-rev-ckm-matrix.pdf
+PDG, Neutrino Masses, Mixing, and Oscillations, secs. 14.1-14.2
+https://pdg.lbl.gov/2026/reviews/rpp2026-rev-neutrino-mixing.pdf
+
+End of version 0.17.
+
+
+======================================================================
+76. A DEGENERATE HORIZON SECTOR, REVERSIBLE EMISSION AND DETAILED BALANCE
+======================================================================
+
+Question. A single mass measurement can be shared by many orthogonal
+states. Can that multiplicity both preserve quantum information during
+evaporation and determine the spectrum of the outgoing radiation?
+
+Conditional inputs and indices. The bare high-energy address is n with
+E_n=E_* n. Its bare eigenspace has dimension one for n>1 (PL-09).
+Introduce a separate area label j>=0 and a physical internal register
+B_j=(C^4)^(tensor j), B_0=C, with d_j=4^j states of the same energy E_j.
+This exact microstate hypothesis strengthens section 74's asymptotic
+count; the four digit choices used to encode n alone do not imply it.
+Take A_j=alpha l_P^2 j, alpha>0, and the Schwarzschild relation
+E_j=E_P sqrt(alpha j/(16 pi)), E_P^2=hbar c^5/G. A mass address may
+label a coarse energy band; exact alignments are governed by PL-50.
+The terminal one-dimensional sector is a boundary condition of the toy
+model. Applying semiclassical gravity through the last step is a separate
+physical extrapolation.
+
+PL-53. Entropy fixes a consistency condition on the area spacing.
+The entropy of the uniform distribution on the orthogonal states at j
+is S_j/k_B=ln d_j=j ln 4, or exactly 2j bits. The Schwarzschild area
+law would assign S_j/k_B=A_j/(4l_P^2)=alpha j/4. The two coefficients
+agree if and only if alpha=4 ln 4. This uses the independent area law
+to match the normalizations. Density of distinct energy levels alone
+supplies no multiplicity at a fixed energy.
+
+PL-54. A reversible, energy-preserving emission operator exists.
+Fix 1<=s<=j. Suppose the outgoing channel has 4^s orthogonal states
+labeled by the s-digit words u, all of energy epsilon=E_j-E_(j-s).
+They can denote a radiation packet. A single particle with precisely
+these modes would require its own physical construction. Let a denote
+a (j-s)-digit prefix and v an s-digit suffix. Define
+
+    L_u |a,v> = delta_(u,v)|a>,
+    V_(j,s) psi = sum_u (L_u psi) tensor |u>_out.
+
+Each input basis state maps to |a> tensor |v>_out. Every output basis
+state is attained exactly once. Consequently V_(j,s) is unitary between
+these equal-dimensional sectors. It preserves superpositions and
+entanglement with an arbitrary external reference. The final sector has
+total energy E_(j-s)+epsilon=E_j, taking the radiation input as vacuum.
+This realizes the least outgoing dimension allowed by an isometry:
+d_j <= d_(j-s) d_out requires d_out>=4^s, or 2s bits of capacity.
+For s=1 at each step one reaches B_0; concatenation in the reverse
+emission order reconstructs the initial state coherently. This proves
+complete recovery within the specified model. For the uniform initial
+state, the outgoing label is uniform on its fixed-energy shell. This
+alone supplies no information about probabilities of different energies.
+
+PL-55. A resolved forward/reverse strength ratio follows from state count.
+Use uniform initial black-hole ensembles on each side, one specified
+radiation mode u, matched external normalization, and reciprocal
+matrix elements. For any nonzero transition map L:B_j -> B_(j-s)
+and its absorption adjoint, define the reduced strengths
+
+    w_em  = Tr_(B_j)(L^dagger L)/d_j,
+    w_abs = Tr_(B_(j-s))(L L^dagger)/d_(j-s).
+
+The traces equal the same sum of squared matrix elements. Hence
+
+    w_em/w_abs = d_(j-s)/d_j = 4^(-s).                      (76.1)
+
+For the suffix operator, L_u L_u^dagger=I and L_u^dagger L_u is a
+projection of rank 4^(j-s). Its reduced strengths are 4^(-s) and 1.
+Equation (76.1) is a quotient for a specified mode and its reverse.
+A sum over modes, an ambient population, and a physical rate per unit
+time each require the corresponding factors and normalization.
+
+PL-56. The entropy factor has an exact finite-energy thermal form.
+Impose the consistency condition alpha=4 ln 4. Put E=E_j and F=E_(j-s)
+and beta_H(y)=1/[k_B T_H(y)]=8 pi y/E_P^2. Then
+
+    s ln 4 = 4 pi (E^2-F^2)/E_P^2
+           = beta_H((E+F)/2) (E-F)
+           = beta_H(E) epsilon (1-epsilon/(2E)).
+
+Thus (76.1) is exactly exp[-beta_H((E+F)/2) epsilon]. At fixed s
+and j tending to infinity, epsilon/E=1-sqrt(1-s/j) tends to zero
+and beta_H(E) epsilon tends to s ln 4. This yields the Hawking
+Boltzmann factor for a resolved forward/reverse comparison in the
+large-area limit. The entropy secant and the midpoint formula are exact
+at finite j in this Schwarzschild model.
+
+PL-57. Reversibility and detailed balance leave the spectral weights free.
+At any j>=2 choose any probability vector p_s, 1<=s<=j, and keep
+different outgoing jump sizes in distinguishable energy sectors. Set
+
+    V_j(p) psi = direct_sum_s sqrt(p_s) V_(j,s) psi.
+
+Orthogonality of the sectors gives V_j(p)^dagger V_j(p)=sum_s p_s I=I.
+Every branch conserves total energy. The probability of a jump of
+size s is exactly p_s for every normalized initial state. Each active
+resolved matrix element is multiplied by sqrt(p_s) in both directions,
+so (76.1) continues to hold. For example, for j>=2, setting p_1=1
+or p_2=1 yields different emitted energies from the same initial mass.
+Choosing different strictly positive vectors gives different spectra
+even with the same allowed channels. For repeated coherent emission,
+retain the packet order and distinguishable branch records. Composition
+on the remaining hole preserves inner products, and each history reaches
+B_0 after at most j jumps. Its final radiation can encode the entire
+input. The construction sets no waiting times or observational couplings.
+
+First unresolved physical edge. Neither the bare mass spectrum nor the
+conditional state count selects the p_s, the physical radiation mode
+spaces, line widths or clock. Replacing a known transition map by a
+nonzero rescaling also preserves (76.1) while changing its individual
+strengths. Matching the Hawking flux requires a physical interaction,
+the accessible species and modes, and their frequency-dependent
+transmission (greybody factors). Recovering information for a real
+evaporating hole also requires that its complete dynamics implement an
+isometry into the asymptotic radiation. PL-54 proves existence for the
+chosen internal register and channels. PL-57 proves that this existence
+and the balance law cannot select the physical spectrum. The physical
+black-hole information paradox remains open for the mass lattice.
+
+Static checks. For j=1,...,5 and every 1<=s<=j, finite word enumeration
+verified the basis bijection and trace ratio. Numerical substitution at
+the same 15 pairs checked the midpoint identity. The arguments above
+establish the conditional results for all admitted j and s.
+
+Sources. Bekenstein and Mukhanov (1995) relate multiplicity, transition
+weights and black-hole lines under further matrix-element assumptions.
+https://doi.org/10.1016/0370-2693(95)01148-J
+Bekenstein, Bekenstein-Hawking entropy (2008).
+https://doi.org/10.4249/scholarpedia.7375
+Page (1976) computes physical mode-dependent emission strengths.
+https://doi.org/10.1103/PhysRevD.13.198
+Page (1993) discusses recovery in correlations of the outgoing radiation.
+https://arxiv.org/abs/hep-th/9306083
+
+End of version 0.18.
+
+======================================================================
+77. EXPERIMENTAL EVIDENCE FOR ORDINARY STANDARD MODEL QUANTUM NUMBERS
+======================================================================
+
+Companion data register: SM_Quantum_Number_Evidence.xlsx.
+The register contains 73 distinct reported results, 17 species entries
+and 42 source records (40 empirical publications and two model reviews).
+Each entry in Assignments maps to three example measurement IDs. The
+additional observations include charge-specific W helicity fits, joint
+light-quark measurements and three detector determinations of the same
+pole asymmetry for each charged lepton. W+ and W- occupy one multiplet
+entry. The eight gluons also occupy one entry. Particle, antiparticle,
+flavor and production conventions are given where the measurements differ.
+
+Each observation records its actual measured quantity, the quantum
+number it probes, central value or bound, error components or published
+test type, primary source and known overlap. The discrete labels are
+model assignments on a separate sheet. Examples of dependence:
+
+  * The neutral-current light-flavor OPAL fit assumes equal down and
+    strange results. Both species point to the same empirical record.
+  * Nine detector-specific lepton asymmetries feed a later global
+    fit of effective couplings. Combining the inputs and outputs as
+    independent observations would reuse the same events.
+  * A limit on a charge or a rare decay is not a measured nonzero
+    charge or branching fraction. The signed top-quark charge estimate
+    carries its jet calibration and both original uncertainties.
+
+One testable combination is the light-quark continuum cross-section
+ratio R at leading electromagnetic order, neglecting quark masses,
+  R = N_c (Q_u^2 + Q_d^2 + Q_s^2) = 3(4/9 + 1/9 + 1/9) = 2.
+BESII reports 2.18 +/-0.02 +/-0.08 at 2.60 GeV, 2.13 +/-0.02 +/-0.07
+at 3.07 GeV, and 2.14 +/-0.01 +/-0.07 at 3.65 GeV. A precision test
+requires the relevant strong-interaction and resonance corrections.
+Squaring the charges discards their signs and the inclusive data
+constrain the flavor sum. The three rows therefore do not identify
+three individual quark charges.
+https://arxiv.org/abs/0903.0900
+
+Status. Representative empirical inputs have been collected. Separate
+measurements of every discrete representation label three times for
+each species are unavailable in this register. Scoring an assignment
+requires specifying its predicted observable, nuisance assumptions and
+joint error law as in sections 67-72. No joint fit or Lean run was made.
+
+End of version 0.19.
+
+======================================================================
+78. RAPID FORMATION, SLOW EMISSION AND FINITE-TIME DISTINGUISHABILITY
+======================================================================
+
+What can an exterior observer distinguish? Two formation histories can
+end with the same measured mass and other bulk parameters. Their prompt
+gravitational or electromagnetic signals may still differ. State which
+formation data and outgoing modes the observer receives. Reversibility
+means that the full evolution preserves quantum states and their inner
+products. It specifies neither a radiation clock nor a way to reconstruct
+the state from a partial observation.
+
+PL-58. An exactly recoverable phase with invisible early radiation.
+In PL-54 take j>=2 and successive single-digit emissions. In the
+two-dimensional subspace spanned by |0> and |1> of each digit, prepare
+
+    |psi_+> = (|0>^tensor j + |1>^tensor j)/sqrt(2),
+    |psi_-> = (|0>^tensor j - |1>^tensor j)/sqrt(2).
+
+These states are orthogonal and have the same energy E_j. Write rho_k^+
+and rho_k^- for the respective density matrices of the first k emitted
+digits. For 0<k<j at least one digit remains in the hole. The inner
+product of the two remaining strings is zero. Taking the partial trace
+therefore removes the cross terms and both radiation states become
+
+    (|0...0><0...0| + |1...1><1...1|)/2.
+
+For k=0 both radiation states are vacuum. For k=j the two radiation
+states are pure and orthogonal. Thus their trace distance, defined by
+D(rho,sigma)=||rho-sigma||_1/2, is zero for k<j and one for k=j.
+A measurement of the product of the Pauli X operators on the collected
+two-level subspaces recovers the sign at completion. The transfer
+preserves an arbitrary superposition on the full input space; the timing
+result concerns this particular encoded sign.
+
+PL-59. Timed observation with approximately equal formation records.
+Let K(t) be the number of emissions by time t after formation. Assume its
+distribution p_k(t) is independent of the alternative input, and k is a
+classical record in orthogonal observed sectors. For the preceding pair,
+with no additional distinguishing record, the outgoing trace distance is
+
+    D_out(t)=sum_k p_k(t) D(rho_k^+,rho_k^-)=Pr[K(t)=j]=F(t).
+
+This follows from additivity of the trace norm on block diagonal
+operators. With equal prior probabilities the optimal discrimination
+success probability is (1+D_out)/2. In particular a recorded, reversible
+process can remain arbitrarily close to chance for a finite observation
+if its completion probability in that window is small.
+
+More generally suppose that, conditioned on each incomplete record k,
+the JOINT state of the observed formation data and all collected
+radiation differs by trace distance at most delta, 0<=delta<=1.
+For complete records its distance is at most one. Then
+
+    P_guess(t) <= [1 + delta + (1-delta) F(t)]/2.             (78.1)
+
+This is a condition on all data accessible jointly. Similar marginal
+formation records alone do not bound correlations with early radiation.
+Ignoring the count or applying detector noise can lower the attainable
+distinguishability. State-dependent timing can itself distinguish the
+alternatives; (78.1) uses the common count distribution above.
+
+For this model assume cumulative emitted energy from evaporation is
+nonnegative, with E_j-E_0 released on every complete history. Its mean
+by time t, B(t), is then at least F(t)(E_j-E_0), so F(t) is bounded by
+min(1,B(t)/(E_j-E_0)). This gives an upper bound on the observable phase
+distinction when the expected energy budget is small. If data are lost
+to the detector, detected energy alone does not provide that upper bound.
+
+Scope test. For the same energy sequence and the same clock, choose the
+two basis words with identical prefixes and distinct last digits.
+The first emitted digit distinguishes this pair perfectly. Its trace
+distance at time t is Pr[K(t)>=1] under the same count assumption.
+Release time depends on the encoded distinction and the interaction.
+Slow mass loss alone leaves the first time information appears undetermined.
+
+Physical obstruction. In classical stellar collapse matter pressure
+enters the dynamics. Causal trapping at a horizon limits which signals
+reach infinity. Pressure and the mass alone supply no clock for decoding
+quantum correlations. Nor do equal late masses imply identical formation
+signals. Identifying (78.1) with real black holes requires an actual
+formation map, its accessible prompt records, and an emission dynamics
+that fixes both p_k(t) and the conditional early states.
+
+Sources. Holevo-Helstrom binary discrimination, equal prior probabilities:
+https://cleve.iqc.uwaterloo.ca/resources/QIC-710-F12/LectureNotes/Qic710Lec16toLec17Fall2012.pdf
+Horizon and exterior radiation:
+https://science.nasa.gov/universe/black-holes/anatomy/
+An observed formation waveform for a merger remnant:
+https://dcc.ligo.org/P150914/public
+
+End of version 0.20.
